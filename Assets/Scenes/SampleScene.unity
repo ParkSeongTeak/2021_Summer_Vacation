@@ -691,7 +691,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f01508ad5bcba5e499a08829f2b44cf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  getColor: 1
+  saveColor: 0
 --- !u!4 &1098016461
 Transform:
   m_ObjectHideFlags: 0
@@ -1032,7 +1032,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1947872725}
-  - component: {fileID: 1947872724}
   - component: {fileID: 1947872723}
   m_Layer: 0
   m_Name: controller
@@ -1051,18 +1050,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d341637b1a8d2f946bfa6608941d73a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1947872724
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1947872722}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1f9f66fb1db46e4fba3de0110860ffd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &1947872725
