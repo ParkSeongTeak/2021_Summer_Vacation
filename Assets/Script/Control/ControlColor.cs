@@ -40,6 +40,7 @@ public class ControlColor : MonoBehaviour
                     Image.GetComponent<Image>().color = GameManager.Instance.Getcolor();
                     GameManager.Instance.saveColor = false;
                     Debug.Log("False");
+                    // CurrentTouch  . ->  search (CurrentTouch CurrentTouch.color() ) 
 
                 }
 

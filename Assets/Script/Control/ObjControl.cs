@@ -5,18 +5,35 @@ using UnityEngine.UI;
 
 public class ObjControl : MonoBehaviour
 {
-    
+    /*
+    public GameObject[] GameObj = new GameObject[5];
+
     public void Search(GameObject gameObject, Color originalColor)
     {
-        //이 함수를 돌리면 인접 Obj 태그의 색이 원래 색과(originalColor) 같았는지 검사해 이 스크립트를 가진 오브젝트의 색도 전달받은 오브젝트(gameObject)의 색으로 바꾼다.
-        //구현을 위한 가장 단순한 예시로 bool Run = false;
-        //Run = true;
 
+        //GameObj[0].color == this.color -> GameObj[0].search()
     }
+    */
+
+    public void OnCollisionStay(Collision collision)
+    {
+        Debug.Log("Hello!!");
+    }
+    /*
     //아래는 충돌 이벤트
     //private void OnCollisionEnter(Collision collision)
     //{
-        //if(Run){.... Run = false}
+    //if(Run){
+    // Color. color() =  본인 색 
+    //this.Color = Obj.Color
+    //collision.color == Color. color
+
+    //true -> 색 바꾸고 -> search()
+
+    //false -> 끝내고
+
+
+    //Run = false}
     //}
-    
+    */
 }
