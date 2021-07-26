@@ -8,6 +8,7 @@ public class ControlColor : MonoBehaviour
 {
     GameObject Image;
     GameObject CurrentTouch;
+    GameObject SaveObj;
     Color Color;
     bool getcolor;
 
@@ -30,7 +31,14 @@ public class ControlColor : MonoBehaviour
                 CurrentTouch = hit.transform.gameObject;
                 if (!GameManager.Instance.saveColor)
                 {
-                    CurrentTouch.GetComponent<Renderer>().material.color = GameManager.Instance.Getcolor();
+                    Color originalColor = CurrentTouch.GetComponent<Renderer>().material.color;
+
+                    CurrentTouch.GetComponent<ObjControl>().Search(SaveObj, originalColor);
+
+                    //CurrentTouch.GetComponent<Renderer>().material.color = GameManager.Instance.Getcolor();
+
+                    
+                    //CurrentTouch.GetComponent<Renderer>().material.color = GameManager.Instance.Getcolor();
                     GameManager.Instance.saveColor = true;
                     Debug.Log("True");
                 }
@@ -38,6 +46,7 @@ public class ControlColor : MonoBehaviour
                 {
                     GameManager.Instance.Setcolor(CurrentTouch.GetComponent<Renderer>().material.color);
                     Image.GetComponent<Image>().color = GameManager.Instance.Getcolor();
+                    SaveObj = CurrentTouch;
                     GameManager.Instance.saveColor = false;
                     Debug.Log("False");
                     // CurrentTouch  . ->  search (CurrentTouch CurrentTouch.color() ) 
