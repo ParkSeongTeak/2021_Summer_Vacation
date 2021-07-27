@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class Test : MonoBehaviour
+public class GetNeighbor : MonoBehaviour
 {
     List<GameObject> gameObjects = new List<GameObject>();
     private void OnCollisionEnter(Collision collision)
