@@ -31,6 +31,10 @@ public class ControlColor : MonoBehaviour
             if (hit.collider != null)
             {
                 CurrentTouch = hit.transform.gameObject;
+
+                SearchRay.Instance.SetEnd(CurrentTouch);
+                SearchRay.Instance.keydown = true;
+
                 if (!GameManager.Instance.saveColor)
                 {
                     Color originalColor = CurrentTouch.GetComponent<Renderer>().material.color;

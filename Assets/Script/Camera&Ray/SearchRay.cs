@@ -4,42 +4,53 @@ using UnityEngine;
 
 public class SearchRay : MonoBehaviour
 {
+    public static SearchRay Instance;
     float RotateSpeed = 5f;
     GameObject start;
     GameObject End;
     GameObject Camera;
+    float rotSpeed = 2.0f;
     public bool keydown = false;
-    public bool keyup = true;
-
-
-    public void GetKeyDown()
+    bool SetRotate = false;
+    
+    private void Start()
     {
-        this.transform.rotation = Camera.transform.rotation;
+        Instance = this;
     }
 
-    /*
-    public Queue<GameObject> SearchObjRay(GameObject start, GameObject End, GameObject Camera)
+    public void SetEnd(GameObject gameObject)
     {
-        List<GameObject> obj = new List<GameObject>();
-        Queue<GameObject> gameObjects = new Queue<GameObject>();
-        RaycastHit hit;
-
-        if(Physics.Raycast(Camera, start - Camera, out hit))
-        {
-            for (int i = 0; i < obj.Count; i++)
-            {
-
-            }
-        }
-        
-
-
-        return gameObjects;
+        End = gameObject;
     }
-    */
 
+
+    //Quaternion qua = Quaternion.LookRotation(directionVec);
     private void Update()
     {
+        if (keydown)
+        {
+            if (!SetRotate)
+            {
+                SetRotate = true;
+                GetKeyDown();
+            }
+
+            RotatainRay();
+
+
+        }
+
         
     }
+    public void GetKeyDown()
+    {
+        Instance.transform.rotation = Camera.transform.rotation;
+    }
+    void RotatainRay()
+    {
+        Vector3 relativePos = End.transform.position - transform.position;
+        Quaternion rotation = Quaternion.LookRotation(relativePos);
+        Instance.transform.rotation = Quaternion.Slerp(Instance.transform.rotation,rotation,Time.deltaTime *rotSpeed );
+    }
+
 }
