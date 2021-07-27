@@ -80,8 +80,8 @@ public class ObjControl : MonoBehaviour
 
     void GetNeighbor()
     {
-        neighborObjList = this.GetComponent<Test>().neighborObj();
-        Destroy(this.GetComponent<Test>());
+        neighborObjList = this.GetComponent<GetNeighbor>().neighborObj();
+        Destroy(this.GetComponent<GetNeighbor>());
 
 
         if (neighborObjList.Count == 0)
