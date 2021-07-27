@@ -22,6 +22,8 @@ public class ControlColor : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
+
+
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             Physics.Raycast(ray, out hit);

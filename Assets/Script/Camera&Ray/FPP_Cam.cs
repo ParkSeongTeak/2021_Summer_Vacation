@@ -5,8 +5,8 @@ using UnityEngine;
 public class FPP_Cam : MonoBehaviour
 {
     public float turnSpeed = 4.0f; // 마우스 회전 속도    
-    private float xRotate = 0.0f; 
-
+    private float xRotate = 0.0f;
+    public GameObject SearchRay;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,5 +30,7 @@ public class FPP_Cam : MonoBehaviour
 
         // 카메라 회전량을 카메라에 반영(X, Y축만 회전)
         transform.eulerAngles = new Vector3(xRotate, yRotate, 0);
+
+        SearchRay.transform.position = this.transform.position;
     }
 }
