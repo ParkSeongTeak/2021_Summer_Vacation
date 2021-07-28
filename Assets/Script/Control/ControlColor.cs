@@ -33,13 +33,16 @@ public class ControlColor : MonoBehaviour
                 CurrentTouch = hit.transform.gameObject;
 
                 SearchRay.Instance.SetEnd(CurrentTouch);
-                SearchRay.Instance.keydown = true;
+               
 
                 if (!GameManager.Instance.saveColor)
                 {
-                    Color originalColor = CurrentTouch.GetComponent<Renderer>().material.color;
+                    //SearchRay Search 시작;
+                    SearchRay.Instance.keydown = true;
 
-                    CurrentTouch.GetComponent<ObjControl>().Search(SaveObj, originalColor);
+                    //Color originalColor = CurrentTouch.GetComponent<Renderer>().material.color;
+
+                    //CurrentTouch.GetComponent<ObjControl>().Search(SaveObj, originalColor);
 
                     //CurrentTouch.GetComponent<Renderer>().material.color = GameManager.Instance.Getcolor();
 
@@ -50,9 +53,12 @@ public class ControlColor : MonoBehaviour
                 }
                 else
                 {
+                    //SearchRay 카메라와 같은방향;
+                    SearchRay.Instance.GetKeyDown();
+
                     GameManager.Instance.Setcolor(CurrentTouch.GetComponent<Renderer>().material.color);
                     Image.GetComponent<Image>().color = GameManager.Instance.Getcolor();
-                    SaveObj = CurrentTouch;
+                    //SaveObj = CurrentTouch;
                     GameManager.Instance.saveColor = false;
                     Debug.Log("False");
                     // CurrentTouch  . ->  search (CurrentTouch CurrentTouch.color() ) 

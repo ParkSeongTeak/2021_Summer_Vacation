@@ -90,7 +90,7 @@ public class ObjControl : MonoBehaviour
 
         for (int i = 0; i < neighborObjList.Count; i++)
         {
-            Debug.Log(" In Obj Con " + neighborObjList[i].name);
+          //  Debug.Log(" In Obj Con " + neighborObjList[i].name);
         }
 
     }
