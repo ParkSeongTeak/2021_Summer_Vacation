@@ -17,7 +17,7 @@ public class ObjControl : MonoBehaviour
     public void Search(GameObject gameObject, Color originalColor)
     {
 
-        Debug.Log("Hello");
+       // Debug.Log("Hello");
         //이 함수를 돌리면 인접 Obj 태그의 색이 원래 색과(originalColor) 같았는지 검사해 이 스크립트를 가진 오브젝트의 색도 전달받은 오브젝트(gameObject)의 색으로 바꾼다.
         //구현을 위한 가장 단순한 예시로 bool Run = false;
         //Run = true;
@@ -59,8 +59,12 @@ public class ObjControl : MonoBehaviour
 
     //////////////////////////////////////////
 
-
-
+    //****************************************************************
+    //함수 자체는 문제가 전혀 없습니다만 Queue나 List 오브젝트 중복체크를 update에서 매 프레임 하니까 처리를 못하더라구요 ㅠㅠㅠㅠ 렉걸립니다
+    //설계 미스입니다 SearchRay에서 어떤식으로 구현했는지 구경이나 해봅시다 ㅠㅠ
+    //************************************************************************
+    
+    /*
     void SearchNear(Queue<GameObject> gameObjects, GameObject Start)
     //SearchNear 함수는 queue에 담긴 Obj를 top부터 확인하며 최초로 start와 다른 색을 지닌 Obj를 Search함수로 보내는 함수입니다 잔여 queue는 clear해줍니다.
     //아마? gameObjects[0] ==start일 것 같긴 한데 버그 방지 (당연히 gameObjects[0] 는 이해를 위한 표현입니다)
@@ -77,22 +81,24 @@ public class ObjControl : MonoBehaviour
             }
         }
     }
+    */
 
+    
     void GetNeighbor()
     {
         neighborObjList = this.GetComponent<GetNeighbor>().neighborObj();
         Destroy(this.GetComponent<GetNeighbor>());
 
-
+        /*
         if (neighborObjList.Count == 0)
             Debug.Log("None");
-        Debug.Log(neighborObjList.Count);
+        //Debug.Log(this.gameObject.name+" " + neighborObjList.Count);
 
         for (int i = 0; i < neighborObjList.Count; i++)
         {
-          //  Debug.Log(" In Obj Con " + neighborObjList[i].name);
+           Debug.Log(this.gameObject.name + " "+  neighborObjList[i].name);
         }
-
+        */
     }
 
 }

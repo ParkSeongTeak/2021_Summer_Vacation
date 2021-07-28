@@ -14,14 +14,15 @@ public class SearchRay : MonoBehaviour
     int Debg = 0;
 
 
-    GameObject start;
-    GameObject End;
+    GameObject StartObj;
+
+    Vector3 StartPos;
+    Vector3 EndPos;
     GameObject Camera;
 
     RaycastHit hit;
     Ray ray;
 
-    List<GameObject> ListObj;
     float rotSpeed = 2.0f;
     public bool keydown = false;
     bool SetRotate = false;
@@ -34,153 +35,111 @@ public class SearchRay : MonoBehaviour
         ray.origin = this.transform.position;
         ray.direction = this.transform.forward;
         current = this.gameObject.transform.rotation;
-        ListObj = new List<GameObject>();
         before = this.gameObject;
+        StartPos = new Vector3 ();
+        EndPos = new Vector3();
+
+
     }
 
-    public void SetEnd(GameObject gameObject)
+    public void SetStartPos(Vector3 startpos)
+    //ControlColor class에서 클릭시 가져오기
     {
-        End = gameObject;
+        StartPos = startpos;
+    }
+    public void SetStart(GameObject start)
+    //ControlColor class에서 클릭시 가져오기
+
+    {
+        StartObj = start;
+    }
+    public void SetEnd(Vector3 gameObject)
+    //ControlColor class에서 클릭시 가져오기
+
+    {
+        EndPos = gameObject;
     }
 
-
-    //Quaternion qua = Quaternion.LookRotation(directionVec);
     private void Update()
     {
 
         if (keydown)                // ControlColor -> GetMouse -> !savecolor 일때 활성화
         {
+
             Debg += 1;
-            if (Debg > 400)
+            if (Debg > 500)        //무한렉 방지 개발중에만 사용
             {
                 Debug.Log("Over400");
                 keydown = false;
+                Debg = 0;
                 return;
             }
 
-           Debug.DrawRay(ray.origin, ray.direction * dist, Color.red);
+           Debug.DrawRay(ray.origin, ray.direction * dist, Color.green);
+
+            //SearchRay 전방주시
+            ray.origin = this.transform.position;
+            ray.direction = this.transform.forward;
+
+            Physics.Raycast(ray.origin, ray.direction, out hit);
+
+            if (hit.collider != null)
+            {
+                if (hit.collider.gameObject != before) // 이전꺼면 ㄴㄴ
+                {
+
+                    before = hit.collider.gameObject;
+                    GameObject game = hit.collider.gameObject;
+                    Debug.Log("InSearchRay" + before.name);
+
+                    if (game.gameObject.GetComponent<Renderer>().material.color != StartObj.gameObject.GetComponent<Renderer>().material.color)
+                    //만약 경로상 다른 색이 있다면
+                    {
+                        game.GetComponent<ObjControl>().Search(StartObj, game.gameObject.GetComponent<Renderer>().material.color);
+                        keydown = false;        //탈출
+                        return;
+
+                    }
+
+
+                }
+            }
+
 
             cnt++;
-            
-            if (cnt > 3)                                                    //굳이 매 프레임? 4프레임마다 
+            if (cnt > 3)
             {
                 cnt = 0;
-
-                Physics.Raycast(ray.origin, ray.direction, out hit);
-
-                if (hit.collider != null)
-                {
-                    if (hit.collider != before) //SearchRay전방으로 ray
-                    {
-                        before = hit.collider.gameObject;
-                        GameObject game = hit.collider.gameObject;
-
-                        for (int i = 0; i < ListObj.Count + 1; i++)
-                        {
-                            if (i == ListObj.Count)
-                            {
-                                ListObj.Add(game);                          //List에 없는 오브젝트면 add;
-                                Debug.Log(game.gameObject.name);
-                            }
-                            else if (ListObj[i] == game)
-                            {
-                                break;
-                            }
-
-                        }
-                    }
-                }
-
-
-
-                if (this.gameObject.transform.rotation == current)           //멈추면
+                if (this.gameObject.transform.rotation == current)       
+                //움직임 확인 웁직임이 멈추면 
                 {
                     keydown = false;                                        //SearchRay종료
                     Debug.Log("Debg: " + Debg);
                     Debg = 0;
-                    ListObj.Clear();
-                }
-                else
-                {
-                    current = this.gameObject.transform.rotation;
-
-                    
-
-                }
-            }
-            RotatainRay();          //돌려;
-
-        }
-        /*if (hit.collider != null) {
-            if (hit.collider != before) //SearchRay전방으로 ray
-            {
-
-
-                before = hit.collider.gameObject;
-                GameObject game = hit.collider.gameObject;
-                for (int i = 0; i < ListObj.Count + 1; i++)
-                {
-                    if (i == ListObj.Count)
-                    {
-                        ListObj.Add(game);                          //List에 없는 오브젝트면 add;
-                        Debug.Log(game.gameObject.name);
-                    }
-                    else if (ListObj[i] == game)
-                    {
-                        break;
-                    }
-
-                }
-            }
-            cnt++;
-            if (cnt > 3)                                                    //굳이 매 프레임? 3프레임마다 
-            {
-                cnt = 0;
-
-                if (this.gameObject.transform.rotation == current)           //멈추면
-                {
-                    keydown = false;                                        //SearchRay종료
-
-                    GameObject Start = ListObj[0];                           //첫번째거 가져와서 
-
-                    for (int i = 1; i < ListObj.Count; i++)
-                    {
-
-                        if (ListObj[i].GetComponent<Renderer>().material.color != Start.GetComponent<Renderer>().material.color)
-                        //List해석
-                        {
-                            ListObj[i].GetComponent<ObjControl>().Search(Start, ListObj[i].GetComponent<Renderer>().material.color);
-                            ListObj.Clear();
-                            break;
-                        }
-
-                    }
-
-
 
                 }
                 else
                 {
                     current = this.gameObject.transform.rotation;
+
                 }
             }
-            RotatainRay();          //돌려;
+            RotatainRay();          //돌려
 
         }
-        
-    }
-        */
-
+       
     }
 
 
-    public void GetKeyDown()
+    public void GetKeyDown(Vector3 HitPos)        //카메라와 같은 방향보기
     {
-        Instance.transform.rotation = Camera.transform.rotation;
+        Vector3 relativePos = HitPos- transform.position;
+        Instance.transform.rotation = Quaternion.LookRotation(relativePos);
     }
     void RotatainRay()
+        //자연스러운 돌리기
     {
-        Vector3 relativePos = End.transform.position - transform.position;
+        Vector3 relativePos = EndPos - transform.position;
         Quaternion rotation = Quaternion.LookRotation(relativePos);
         Instance.transform.rotation = Quaternion.Slerp(Instance.transform.rotation,rotation,Time.deltaTime *rotSpeed );
     }

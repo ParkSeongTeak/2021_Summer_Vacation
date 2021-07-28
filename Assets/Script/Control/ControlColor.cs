@@ -11,6 +11,8 @@ public class ControlColor : MonoBehaviour
     GameObject SaveObj;
     Color Color;
     bool getcolor;
+    
+
 
     private void Start()
     {
@@ -22,7 +24,7 @@ public class ControlColor : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-
+            Vector3 MousePos = Input.mousePosition;
 
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -32,13 +34,12 @@ public class ControlColor : MonoBehaviour
             {
                 CurrentTouch = hit.transform.gameObject;
 
-                SearchRay.Instance.SetEnd(CurrentTouch);
-               
-
                 if (!GameManager.Instance.saveColor)
                 {
                     //SearchRay Search 시작;
+                    SearchRay.Instance.SetEnd(hit.point);
                     SearchRay.Instance.keydown = true;
+                    
 
                     //Color originalColor = CurrentTouch.GetComponent<Renderer>().material.color;
 
@@ -53,9 +54,10 @@ public class ControlColor : MonoBehaviour
                 }
                 else
                 {
-                    //SearchRay 카메라와 같은방향;
-                    SearchRay.Instance.GetKeyDown();
-
+                      
+                    SearchRay.Instance.SetStart(CurrentTouch);      //첫번째 Set
+                    SearchRay.Instance.GetKeyDown(hit.point);        //SearchRay 첫 오브젝트와 같은방향       
+                    
                     GameManager.Instance.Setcolor(CurrentTouch.GetComponent<Renderer>().material.color);
                     Image.GetComponent<Image>().color = GameManager.Instance.Getcolor();
                     //SaveObj = CurrentTouch;
