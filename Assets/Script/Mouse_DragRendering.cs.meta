@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 9ddfed42f473a7a478fdab19f12a9c77
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - tempDrag: {fileID: 5286881064841264005, guid: faed791372156344a8a06f861a9a44ee, type: 3}
+  - DragBox: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
