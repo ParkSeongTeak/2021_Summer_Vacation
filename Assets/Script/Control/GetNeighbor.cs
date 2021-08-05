@@ -28,7 +28,7 @@ public class GetNeighbor : MonoBehaviour
 
         for(int i = 0; i < gameObjects.Count; i++)
         {
-           // Debug.Log("In Test neighor  "+ gameObjects.GetType().Name);
+           Debug.Log("In Test neighor  "+ gameObjects.GetType().Name);
         }
 
         return gameObjects;

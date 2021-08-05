@@ -34,43 +34,53 @@ public class ControlColor : MonoBehaviour
             {
                 CurrentTouch = hit.transform.gameObject;
 
-                if (!GameManager.Instance.saveColor)
-                {
-                    //SearchRay Search 시작;
-                    SearchRay.Instance.SetEnd(hit.point);
-                    SearchRay.Instance.keydown = true;
-                    
+                //SearchRay Search 시작;
 
-                    //Color originalColor = CurrentTouch.GetComponent<Renderer>().material.color;
+                SearchRay.Instance.SetStart(CurrentTouch);      //첫번째 Set
+                //SearchRay.Instance.SetEnd(hit.point);
+                //SearchRay.Instance.keydown = true;
 
-                    //CurrentTouch.GetComponent<ObjControl>().Search(SaveObj, originalColor);
 
-                    //CurrentTouch.GetComponent<Renderer>().material.color = GameManager.Instance.Getcolor();
+                //Color originalColor = CurrentTouch.GetComponent<Renderer>().material.color;
+                //CurrentTouch.GetComponent<ObjControl>().Search(SaveObj, originalColor);
+                //CurrentTouch.GetComponent<Renderer>().material.color = GameManager.Instance.Getcolor();
+                //CurrentTouch.GetComponent<Renderer>().material.color = GameManager.Instance.Getcolor();
 
-                    
-                    //CurrentTouch.GetComponent<Renderer>().material.color = GameManager.Instance.Getcolor();
-                    GameManager.Instance.saveColor = true;
-                    Debug.Log("True");
-                }
-                else
-                {
-                      
-                    SearchRay.Instance.SetStart(CurrentTouch);      //첫번째 Set
-                    SearchRay.Instance.GetKeyDown(hit.point);        //SearchRay 첫 오브젝트와 같은방향       
-                    
-                    GameManager.Instance.Setcolor(CurrentTouch.GetComponent<Renderer>().material.color);
-                    Image.GetComponent<Image>().color = GameManager.Instance.Getcolor();
-                    //SaveObj = CurrentTouch;
-                    GameManager.Instance.saveColor = false;
-                    Debug.Log("False");
-                    // CurrentTouch  . ->  search (CurrentTouch CurrentTouch.color() ) 
+                GameManager.Instance.saveColor = true;
+                Debug.Log("True");
 
-                }
 
             }
         }
 
+        if (Input.GetMouseButtonUp(0))
+        {
+            Vector3 MousePos = Input.mousePosition;
+
+            RaycastHit hit;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            Physics.Raycast(ray, out hit);
+
+            if (hit.collider != null)
+            {
+                CurrentTouch = hit.transform.gameObject;
+
+                //SearchRay.Instance.SetStart(CurrentTouch);      //첫번째 Set
+                SearchRay.Instance.SetEnd(hit.point);
+
+                SearchRay.Instance.GetKeyDown(hit.point);        //SearchRay 첫 오브젝트와 같은방향       
+                SearchRay.Instance.keydown = true;
+
+                GameManager.Instance.Setcolor(CurrentTouch.GetComponent<Renderer>().material.color);
+                Image.GetComponent<Image>().color = GameManager.Instance.Getcolor();
+                //SaveObj = CurrentTouch;
+                GameManager.Instance.saveColor = false;
+                Debug.Log("False");
+                // CurrentTouch  . ->  search (CurrentTouch CurrentTouch.color() ) 
+            }
 
 
+
+        }
     }
 }

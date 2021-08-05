@@ -38,10 +38,6 @@ public class ObjControl : MonoBehaviour
         // OnCollision기능보다 효율적인 방법을 생각해 보았습니다 어떤식으로 작용하는지 생각해보고 왜 invoke로 굳이 지연을 시켰는지 알아봅시다.
         //*****************************************************************************************************************
 
-        //Debug.Log("this r g b" + this.GetComponent<Renderer>().material.color.r+ " "+ this.GetComponent<Renderer>().material.color.g +" "+ this.GetComponent<Renderer>().material.color.b);
-        //Debug.Log("Org r g b" + originalColor.r + " " + originalColor.g + " " + originalColor.b);
-        //Debug.Log("gameObject r g b" + gameObject.GetComponent<Renderer>().material.color.r + " " + gameObject.GetComponent<Renderer>().material.color.g + " " + gameObject.GetComponent<Renderer>().material.color.b);
-
 
         if (this.GetComponent<Renderer>().material.color == originalColor && gameObject.GetComponent<Renderer>().material.color != originalColor)
         {
@@ -59,30 +55,7 @@ public class ObjControl : MonoBehaviour
 
     //////////////////////////////////////////
 
-    //****************************************************************
-    //함수 자체는 문제가 전혀 없습니다만 Queue나 List 오브젝트 중복체크를 update에서 매 프레임 하니까 처리를 못하더라구요 ㅠㅠㅠㅠ 렉걸립니다
-    //설계 미스입니다 SearchRay에서 어떤식으로 구현했는지 구경이나 해봅시다 ㅠㅠ
-    //************************************************************************
     
-    /*
-    void SearchNear(Queue<GameObject> gameObjects, GameObject Start)
-    //SearchNear 함수는 queue에 담긴 Obj를 top부터 확인하며 최초로 start와 다른 색을 지닌 Obj를 Search함수로 보내는 함수입니다 잔여 queue는 clear해줍니다.
-    //아마? gameObjects[0] ==start일 것 같긴 한데 버그 방지 (당연히 gameObjects[0] 는 이해를 위한 표현입니다)
-    {
-        GameObject tmp;
-        while (gameObjects.Count != 0)
-        {
-            tmp = gameObjects.Dequeue();
-            if (tmp.GetComponent<Renderer>().material.color != Start.GetComponent<Renderer>().material.color)
-            {
-                tmp.GetComponent<ObjControl>().Search(Start, Start.GetComponent<Renderer>().material.color);
-                gameObjects.Clear();
-                break;
-            }
-        }
-    }
-    */
-
     
     void GetNeighbor()
     {

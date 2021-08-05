@@ -7,6 +7,8 @@ public class FPP_Cam : MonoBehaviour
     public float turnSpeed = 4.0f; // 마우스 회전 속도    
     private float xRotate = 0.0f;
     public GameObject SearchRay;
+    public float moveSpeed = 4.0f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,5 +35,12 @@ public class FPP_Cam : MonoBehaviour
         transform.eulerAngles = new Vector3(xRotate, yRotate, 0);
 
         SearchRay.transform.position = this.transform.position;
+
+        Vector3 move =
+            transform.forward * Input.GetAxis("Vertical") +
+            transform.right * Input.GetAxis("Horizontal");
+
+        // 이동량을 좌표에 반영
+        transform.position += move * moveSpeed * Time.deltaTime;
     }
 }
