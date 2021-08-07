@@ -19,28 +19,32 @@ public class FPP_Cam : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // 좌우로 움직인 마우스의 이동량 * 속도에 따라 카메라가 좌우로 회전할 양 계산
-        float yRotateSize = Input.GetAxis("Mouse X") * turnSpeed;
+        if (Time.timeScale != 0f)
+        {
 
-        // 현재 y축 회전값에 더한 새로운 회전각도 계산
-        float yRotate = transform.eulerAngles.y + yRotateSize;
+            // 좌우로 움직인 마우스의 이동량 * 속도에 따라 카메라가 좌우로 회전할 양 계산
+            float yRotateSize = Input.GetAxis("Mouse X") * turnSpeed;
 
-        // 위아래로 움직인 마우스의 이동량 * 속도에 따라 카메라가 회전할 양 계산(하늘, 바닥을 바라보는 동작)
-        float xRotateSize = -Input.GetAxis("Mouse Y") * turnSpeed;
+            // 현재 y축 회전값에 더한 새로운 회전각도 계산
+            float yRotate = transform.eulerAngles.y + yRotateSize;
 
-        // 위아래 회전량을 더해주지만 -45도 ~ 80도로 제한 (-45:하늘방향, 80:바닥방향)
-        xRotate = Mathf.Clamp(xRotate + xRotateSize, -45, 80);
+            // 위아래로 움직인 마우스의 이동량 * 속도에 따라 카메라가 회전할 양 계산(하늘, 바닥을 바라보는 동작)
+            float xRotateSize = -Input.GetAxis("Mouse Y") * turnSpeed;
 
-        // 카메라 회전량을 카메라에 반영(X, Y축만 회전)
-        transform.eulerAngles = new Vector3(xRotate, yRotate, 0);
+            // 위아래 회전량을 더해주지만 -45도 ~ 80도로 제한 (-45:하늘방향, 80:바닥방향)
+            xRotate = Mathf.Clamp(xRotate + xRotateSize, -45, 80);
 
-        SearchRay.transform.position = this.transform.position;
+            // 카메라 회전량을 카메라에 반영(X, Y축만 회전)
+            transform.eulerAngles = new Vector3(xRotate, yRotate, 0);
 
-        Vector3 move =
-            transform.forward * Input.GetAxis("Vertical") +
-            transform.right * Input.GetAxis("Horizontal");
+            SearchRay.transform.position = this.transform.position;
 
-        // 이동량을 좌표에 반영
-        transform.position += move * moveSpeed * Time.deltaTime;
+            Vector3 move =
+                transform.forward * Input.GetAxis("Vertical") +
+                transform.right * Input.GetAxis("Horizontal");
+
+            // 이동량을 좌표에 반영
+            transform.position += move * moveSpeed * Time.deltaTime;
+        }
     }
 }
