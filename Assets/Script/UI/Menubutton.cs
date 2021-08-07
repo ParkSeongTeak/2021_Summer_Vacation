@@ -16,11 +16,11 @@ public class Menubutton : MonoBehaviour
     //public Transform target;
     public float smoothTime = 0.3f;
     private Vector3 velocity = Vector3.zero;
-    Vector3 targetPosition = new Vector3(417,540,0);    //Canvas(960,540,0)
+    Vector3 targetPosition = new Vector3(417, 540, 0);    //Canvas(960,540,0)
     int idx;
     private void Start()
     {
-        for(int i = 0; i < SlideImgNum;i++)
+        for (int i = 0; i < SlideImgNum; i++)
         {
             SlideImgPos[i] = SlideImg[i].transform.position;
         }
@@ -47,13 +47,13 @@ public class Menubutton : MonoBehaviour
         Target = SlideImg[idx];
         StartImg[0].SetActive(true);
         StartImg[1].SetActive(true);
-        
+
     }
-    
+
 
     void LoadGame()
     {
         SceneManager.LoadScene("Stage_1");
     }
-  
+
 }
