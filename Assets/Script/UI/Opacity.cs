@@ -1,22 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class Glow : MonoBehaviour
+
+public class Opacity : MonoBehaviour
 {
     public float activetime = 0.3f;
-    const float fixedTime = 3.0f;
     float timer = 0.0f;
-    float glowtimer = 0.0f;
-    bool up = false;
-    SpriteRenderer spr;
+    bool first = true;
+    float firstTime;
+    Image spr;
     Color color;
 
 
 
     void Start()
     {
-        spr = this.gameObject.GetComponent<SpriteRenderer>();
+        spr = this.gameObject.GetComponent<Image>();
 
         this.color = spr.color;
 
@@ -29,8 +30,39 @@ public class Glow : MonoBehaviour
 
 
         this.timer += Time.deltaTime;
+
         if (timer > activetime)
         {
+            if (spr.color.a <1) {
+                this.color.a += 0.03f;
+                spr.color = this.color;
+                Debug.Log("Up" + spr.color.a);
+            }
+            else 
+            {
+                if (first)
+                {
+                    first = false;
+                    firstTime = timer;
+
+                }
+                else
+                {
+                    if(timer > firstTime + 0.4f)
+                    {
+                        if (this.color.a >= 0)
+                        {
+                            this.color.a -= 0.03f;
+                            spr.color = this.color;
+                            Debug.Log("Up" + spr.color.a);
+                        }
+                    }
+                }
+            }
+
+            //this.gameObject.GetComponent<SpriteRenderer>().color = color;
+
+            /*
             if (this.glowtimer >= 0.5f)
             {
                 this.glowtimer = 0.0f;
@@ -67,7 +99,7 @@ public class Glow : MonoBehaviour
             {
                 Destroy(this.gameObject);
             }
-
+            */
         }
     }
 }
