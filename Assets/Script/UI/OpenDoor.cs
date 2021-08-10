@@ -9,7 +9,7 @@ public class OpenDoor : MonoBehaviour
     Vector3[] DoorFrom = new Vector3[2];
 
     Vector3 Direction;
-    public float x, y;
+    public float x, y,z;
 
     float timer = 0.0f;
     float smoothTime = 0.015f;
@@ -23,7 +23,7 @@ public class OpenDoor : MonoBehaviour
     {
         DoorFrom[0] = Door[0].transform.position;
         DoorFrom[1] = Door[1].transform.position;
-        Direction = new Vector3(x, y, 0);
+        Direction = new Vector3(x, y, z);
         DoorTo[0] = Door[0].transform.position + Direction;
         DoorTo[1] = Door[1].transform.position - Direction;
         Debug.Log("DoorVec[0]" + DoorTo[0]);
