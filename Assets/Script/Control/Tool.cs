@@ -20,7 +20,7 @@ public class Tool : MonoBehaviour
         }
         for (int i = 0; i < Toolnum; i++)
         {
-            if(GameManager.Instance.Tool[i] ==1)
+            if(GameManager.Instance.Tool[i] == 1)
                 ToolButton[i].SetActive(true);
         }
 
