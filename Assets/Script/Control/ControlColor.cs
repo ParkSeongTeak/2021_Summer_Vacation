@@ -7,11 +7,14 @@ using UnityEngine.UI;
 public class ControlColor : MonoBehaviour
 {
     GameObject Image;
-    GameObject CurrentTouch;
+    GameObject DownTouch;
+    GameObject UpTouch;
+
+
     GameObject SaveObj;
     Color Color;
     bool getcolor;
-    
+    bool Obj = false;
 
 
     private void Start()
@@ -30,26 +33,45 @@ public class ControlColor : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             Physics.Raycast(ray, out hit);
 
+
             if (hit.collider != null)
             {
-                CurrentTouch = hit.transform.gameObject;
+                DownTouch = hit.transform.gameObject;
+                if (DownTouch.gameObject.tag == "Tool")
+                {
+                    DownTouch.GetComponent<GetTool>().SetTool();
+                }
 
-                //SearchRay Search 시작;
+                if (DownTouch.gameObject.tag == "Obj")
+                {
+                    Obj = true;
+                    switch (GameManager.Instance.UsingTool)
+                    {
 
-                SearchRay.Instance.SetStart(CurrentTouch);      //첫번째 Set
-                //SearchRay.Instance.SetEnd(hit.point);
-                //SearchRay.Instance.keydown = true;
-
-
-                //Color originalColor = CurrentTouch.GetComponent<Renderer>().material.color;
-                //CurrentTouch.GetComponent<ObjControl>().Search(SaveObj, originalColor);
-                //CurrentTouch.GetComponent<Renderer>().material.color = GameManager.Instance.Getcolor();
-                //CurrentTouch.GetComponent<Renderer>().material.color = GameManager.Instance.Getcolor();
-
-                GameManager.Instance.saveColor = true;
-                Debug.Log("True");
+                        case 1:
 
 
+                            break;
+                        case 2:
+
+                            //SearchRay Search 시작;
+
+                            ToolBox.Instance.SetStart(DownTouch);      //첫번째 Set
+                                                                       //SearchRay.Instance.SetEnd(hit.point);
+                                                                       //SearchRay.Instance.keydown = true;
+
+
+                            //Color originalColor = CurrentTouch.GetComponent<Renderer>().material.color;
+                            //CurrentTouch.GetComponent<ObjControl>().Search(SaveObj, originalColor);
+                            //CurrentTouch.GetComponent<Renderer>().material.color = GameManager.Instance.Getcolor();
+                            //CurrentTouch.GetComponent<Renderer>().material.color = GameManager.Instance.Getcolor();
+
+                            GameManager.Instance.saveColor = true;
+                            Debug.Log("True");
+                            break;
+
+                    }
+                }
             }
         }
 
@@ -63,20 +85,48 @@ public class ControlColor : MonoBehaviour
 
             if (hit.collider != null)
             {
-                CurrentTouch = hit.transform.gameObject;
+                UpTouch = hit.transform.gameObject;
+                if (Obj)
+                {
+                    switch (GameManager.Instance.UsingTool)
+                    {
+                        case 1:
+                            if (DownTouch != UpTouch)
+                            {
+                                if (DownTouch.GetComponent<ObjControl>().GetGameObjects().Contains(UpTouch))
+                                {
+                                    if (DownTouch.GetComponent<Renderer>().material.color != UpTouch.GetComponent<Renderer>().material.color)
+                                    {
+                                        UpTouch.GetComponent<ObjControl>().Search(DownTouch, UpTouch.GetComponent<Renderer>().material.color);
 
-                //SearchRay.Instance.SetStart(CurrentTouch);      //첫번째 Set
-                SearchRay.Instance.SetEnd(hit.point);
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                Debug.Log("Same");
+                            }
+                            break;
+                        case 2:
 
-                SearchRay.Instance.GetKeyDown(hit.point);        //SearchRay 첫 오브젝트와 같은방향       
-                SearchRay.Instance.keydown = true;
+                            //SearchRay.Instance.SetStart(CurrentTouch);      //첫번째 Set
+                            ToolBox.Instance.SetEnd(hit.point);
 
-                GameManager.Instance.Setcolor(CurrentTouch.GetComponent<Renderer>().material.color);
-                Image.GetComponent<Image>().color = GameManager.Instance.Getcolor();
-                //SaveObj = CurrentTouch;
-                GameManager.Instance.saveColor = false;
-                Debug.Log("False");
-                // CurrentTouch  . ->  search (CurrentTouch CurrentTouch.color() ) 
+                            ToolBox.Instance.GetKeyDown(hit.point);        //SearchRay 첫 오브젝트와 같은방향       
+                            ToolBox.Instance.keydown = true;
+
+                            GameManager.Instance.Setcolor(UpTouch.GetComponent<Renderer>().material.color);
+                            Image.GetComponent<Image>().color = GameManager.Instance.Getcolor();
+                            //SaveObj = CurrentTouch;
+                            GameManager.Instance.saveColor = false;
+                            Debug.Log("False");
+                            // CurrentTouch  . ->  search (CurrentTouch CurrentTouch.color() )
+                            // 
+                            break;
+
+                    }
+                    Obj = false;
+                }
             }
 
 

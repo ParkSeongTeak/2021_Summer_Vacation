@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SearchRay : MonoBehaviour
+public class ToolBox : MonoBehaviour
 {
-    public static SearchRay Instance;
+    public static ToolBox Instance;
     float RotateSpeed = 5f;
     int cnt = 0;
     float dist = 8f;
