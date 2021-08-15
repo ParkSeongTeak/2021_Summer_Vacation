@@ -8,12 +8,17 @@ public class FPP_Cam : MonoBehaviour
     private float xRotate = 0.0f;
     public GameObject SearchRay;
     public float moveSpeed = 4.0f;
+    bool jump = false;
+    
+    float jumpY = 20f;
 
+    float DTime = 0.0f;
+    Vector3 Pos;
     // Start is called before the first frame update
     void Start()
     {
         SearchRay = GameObject.Find("SearchRay");
-
+        
     }
 
     // Update is called once per frame
@@ -37,14 +42,60 @@ public class FPP_Cam : MonoBehaviour
             // 카메라 회전량을 카메라에 반영(X, Y축만 회전)
             transform.eulerAngles = new Vector3(xRotate, yRotate, 0);
 
+            if (Input.GetKeyDown("space"))
+            {
+                jump = true;
+
+                this.jumpY = 20f;
+                DTime = 0f;
+
+            }
+
             SearchRay.transform.position = this.transform.position;
 
             Vector3 move =
                 transform.forward * Input.GetAxis("Vertical") +
                 transform.right * Input.GetAxis("Horizontal");
 
+                
+
             // 이동량을 좌표에 반영
             transform.position += move * moveSpeed * Time.deltaTime;
+            
+            if (!jump) {
+                Pos = new Vector3(transform.position.x, 20, transform.position.z);
+                transform.position = Pos;
+            }
+            else
+            {
+                DTime += Time.deltaTime;
+                
+                if (DTime < 0.4f)
+                {
+                    this.jumpY += 0.01f;
+                    Pos = new Vector3(transform.position.x, this.jumpY, transform.position.z);
+                }
+                else if(DTime < 0.8f)
+                {
+                    this.jumpY -= 0.01f;
+                    Pos = new Vector3(transform.position.x, this.jumpY, transform.position.z);
+
+                }
+                else
+                {
+                    jump = false;
+                    this.jumpY = 20f;
+                    DTime = 0f;
+                }
+                transform.position = Pos;
+
+
+            }
+             
+
+
+
         }
     }
+    
 }

@@ -5,6 +5,9 @@ using UnityEngine;
 public class OpenDoor : MonoBehaviour
 {
     public GameObject[] Door = new GameObject[2];// [0]leftdoor [1]right
+    public GameObject SetFalse = null;
+    public GameObject SetTrue = null;
+    
     Vector3[] DoorTo = new Vector3[2];
     Vector3[] DoorFrom = new Vector3[2];
 
@@ -26,8 +29,8 @@ public class OpenDoor : MonoBehaviour
         Direction = new Vector3(x, y, z);
         DoorTo[0] = Door[0].transform.position + Direction;
         DoorTo[1] = Door[1].transform.position - Direction;
-        Debug.Log("DoorVec[0]" + DoorTo[0]);
-        Debug.Log("DoorVec[1]" + DoorTo[1]);
+        //Debug.Log("DoorVec[0]" + DoorTo[0]);
+        //Debug.Log("DoorVec[1]" + DoorTo[1]);
 
 
 
@@ -37,13 +40,25 @@ public class OpenDoor : MonoBehaviour
     //
     //private void OnCollisionEnter(Collision MainCamera)
     {
-        Debug.Log("Hello");
-
+     
         if (MainCamera.transform.tag == "MainCamera")
         {
             DoorUse = true;
             Debug.Log("Open");
+
+            if (SetFalse != null)
+            {
+                SetFalse.SetActive(false);
+            }
+
+            if (SetTrue != null)
+            {
+                SetTrue.SetActive(true);
+            }
+
         }
+
+        
     }
     
     void Update()
@@ -65,8 +80,6 @@ public class OpenDoor : MonoBehaviour
 
 
         }
-
-        
 
     }
 }

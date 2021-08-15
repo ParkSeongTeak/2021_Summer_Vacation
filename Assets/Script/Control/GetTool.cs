@@ -25,16 +25,12 @@ public class GetTool : MonoBehaviour
         GameManager.Instance.SetTool(this.num);
         for(int i= OtherPiecenum - 1; i>=0 ; i--)
         {
-            Destroy(OtherPiece[i]);
+            OtherPiece[i].SetActive(false);
         }
-        Destroy(this.gameObject);
+        this.gameObject.SetActive(false);
 
     }
 
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }

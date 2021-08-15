@@ -53,10 +53,7 @@ public class GameManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
     public void Setcolor(Color color)
     {
         Instance.Color = color;
@@ -64,6 +61,16 @@ public class GameManager : MonoBehaviour
     public Color Getcolor()
     {
         return Instance.Color;
+    }
+
+    public void reset()
+    {
+        PlayerPrefs.SetInt(ToolSave[0], 1);
+        PlayerPrefs.SetInt(ToolSave[1], 0);
+        PlayerPrefs.SetInt(ToolSave[2], 0);
+        PlayerPrefs.SetInt(ToolSave[3], 0);
+        PlayerPrefs.SetInt(ToolSave[4], 0);
+
     }
 
 

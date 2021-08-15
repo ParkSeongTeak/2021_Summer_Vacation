@@ -39,7 +39,7 @@ public class Mouse_DragRendering : MonoBehaviour
 
             //이부분을 수정해야 될거 같은데 Scale 가지고 어떻게 해야될지 감이 안와요 ;
 
-            Debug.Log("mouseDown");
+            //Debug.Log("mouseDown");
         }
 
         //마우스 버튼을 땠을 때

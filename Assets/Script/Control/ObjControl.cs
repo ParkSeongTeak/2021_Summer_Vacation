@@ -10,7 +10,7 @@ public class ObjControl : MonoBehaviour
 
     private void Start()
     {
-
+        //this.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         Invoke("GetNeighbor", 0.2f);
         VeryFirst = this.gameObject.GetComponent<Renderer>().material.color;
 
@@ -44,6 +44,8 @@ public class ObjControl : MonoBehaviour
     void GetNeighbor()
     {
         neighborObjList = this.GetComponent<GetNeighbor>().neighborObj();
+
+        Debug.Log(transform.name +":  "+ neighborObjList.Count);
         Destroy(this.GetComponent<GetNeighbor>());
 
     }
