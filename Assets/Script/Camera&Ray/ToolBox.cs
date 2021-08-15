@@ -5,6 +5,9 @@ using UnityEngine;
 public class ToolBox : MonoBehaviour
 {
     public static ToolBox Instance;
+
+    public GameObject[] NowToolImg = new GameObject[4];
+
     float RotateSpeed = 5f;
     int cnt = 0;
     float dist = 8f;
@@ -144,4 +147,22 @@ public class ToolBox : MonoBehaviour
         Instance.transform.rotation = Quaternion.Slerp(Instance.transform.rotation,rotation,Time.deltaTime *rotSpeed );
     }
 
+    /*
+    public void Brush()
+    {
+        NowToolImg[1]
+        GameManager.Instance.UsingTool = 1;
+        
+        
+        NowToolImg[1].SetActive(true);
+    }
+    public void Paint()
+    {
+        GameManager.Instance.UsingTool = 2;
+    }
+    public void Scissors()
+    {
+        GameManager.Instance.UsingTool = 3;
+    }
+    */
 }

@@ -36,7 +36,10 @@ public class ControlColor : MonoBehaviour
 
             if (hit.collider != null)
             {
+                Debug.Log("DownTouch");
+
                 DownTouch = hit.transform.gameObject;
+                
                 if (DownTouch.gameObject.tag == "Tool")
                 {
                     DownTouch.GetComponent<GetTool>().SetTool();
@@ -85,6 +88,8 @@ public class ControlColor : MonoBehaviour
 
             if (hit.collider != null)
             {
+
+                Debug.Log("UpTouch");
                 UpTouch = hit.transform.gameObject;
                 if (Obj)
                 {
@@ -93,6 +98,9 @@ public class ControlColor : MonoBehaviour
                         case 1:
                             if (DownTouch != UpTouch)
                             {
+
+                                //
+                                Debug.Log("DownTouch != UpTouch");
                                 if (DownTouch.GetComponent<ObjControl>().GetGameObjects().Contains(UpTouch))
                                 {
                                     if (DownTouch.GetComponent<Renderer>().material.color != UpTouch.GetComponent<Renderer>().material.color)

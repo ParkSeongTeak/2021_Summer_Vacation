@@ -17,13 +17,14 @@ public class GameManager : MonoBehaviour
     //Tool 
     public int[] Tool = new int[5];// 0: NoTool 1: Brush 2: 인지색전이
     string[] ToolSave = new string[5];
+    
     public int UsingTool = 0;  
     
     // Start is called before the first frame update
     private void Awake()
     {
         ToolSave[0] = "None";
-        ToolSave[1] = "Bush";
+        ToolSave[1] = "Brush";
         ToolSave[2] = "Paint";
         ToolSave[3] = "Scissors";
         ToolSave[4] = "HelloWorld";
@@ -44,6 +45,9 @@ public class GameManager : MonoBehaviour
         Tool[num] = 1;
         PlayerPrefs.SetInt(ToolSave[num], 1);
     }
+    
+    
+
 
     void Start()
     {

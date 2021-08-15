@@ -7,6 +7,7 @@ public class GetTool : MonoBehaviour
     public int num;
     public int OtherPiecenum =1;
     public GameObject[] OtherPiece;
+    public GameObject button;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,18 +17,19 @@ public class GetTool : MonoBehaviour
         }
 
 
-        else
-        {
-            OtherPiece = new GameObject[OtherPiecenum];
-        }
+        
     }
     public void SetTool() {
+        Debug.Log("SetTool");
         GameManager.Instance.SetTool(this.num);
-        for(int i= OtherPiecenum - 1; i>=0 ; i--)
+        for(int i= this.OtherPiecenum - 1; i>=0 ; i--)
         {
-            OtherPiece[i].SetActive(false);
+            this.OtherPiece[i].SetActive(false);
+
         }
         this.gameObject.SetActive(false);
+
+        this.button.SetActive(true);
 
     }
 
