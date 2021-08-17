@@ -9,8 +9,15 @@ public class FPP_Cam : MonoBehaviour
     public GameObject SearchRay;
     public float moveSpeed = 4.0f;
     bool jump = false;
-    
+
+    float Vertical = 0f;
+    float Horizontal = 0f;
     float jumpY = 20f;
+
+    float V;
+    float H;
+
+    bool trg = false;
 
     float DTime = 0.0f;
     Vector3 Pos;
@@ -21,9 +28,43 @@ public class FPP_Cam : MonoBehaviour
         
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Obj")
+        {
+            V = Vertical;
+            H = Horizontal;
+            moveSpeed = 0f;
+        }
+    }
+
+
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.tag == "Obj")
+        {
+            moveSpeed = 0f;
+
+            Vector3 move =
+                    transform.forward * V +
+                    transform.right * H;
+
+
+            transform.position -= move * 0.01f;
+
+        }
+
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        moveSpeed = 4.0f;
+    }
     // Update is called once per frame
     void Update()
     {
+
         if (Time.timeScale != 0f)
         {
 
@@ -53,15 +94,23 @@ public class FPP_Cam : MonoBehaviour
 
             SearchRay.transform.position = this.transform.position;
 
+            Vertical = Input.GetAxis("Vertical");
+            Horizontal =  Input.GetAxis("Horizontal");
+
+
+
             Vector3 move =
-                transform.forward * Input.GetAxis("Vertical") +
-                transform.right * Input.GetAxis("Horizontal");
+                transform.forward * Vertical +
+                transform.right * Horizontal;
 
                 
 
             // 이동량을 좌표에 반영
             transform.position += move * moveSpeed * Time.deltaTime;
             
+            
+
+
             if (!jump) {
                 Pos = new Vector3(transform.position.x, 20, transform.position.z);
                 transform.position = Pos;

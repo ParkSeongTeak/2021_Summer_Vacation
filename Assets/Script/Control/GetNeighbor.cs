@@ -5,32 +5,35 @@ using UnityEngine;
 
 public class GetNeighbor : MonoBehaviour
 {
+
+
     List<GameObject> gameObjects = new List<GameObject>();
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
-        bool haveObj = false;
-        for (int i = 0; i < gameObjects.Count; i++)
-        {
-            if (gameObjects[i].name == collision.gameObject.name) {
-                haveObj = true;
+        if (collision.tag == "Obj") {
+            bool haveObj = false;
+            for (int i = 0; i < this.gameObjects.Count; i++)
+            {
+                if (this.gameObjects[i].name == collision.gameObject.name) {
+                    haveObj = true;
+                }
+            }
+            if (!haveObj)
+            {
+                this.gameObjects.Add(collision.gameObject);
             }
         }
-        if (!haveObj)
-        {
-            gameObjects.Add(collision.gameObject);
-        }
-
         //Debug.Log("Test      " + collision.gameObject.name);
     }
 
     public List<GameObject> neighborObj()
     {
 
-        for(int i = 0; i < gameObjects.Count; i++)
+        for(int i = 0; i < this.gameObjects.Count; i++)
         {
-           Debug.Log("In Test neighor  "+ gameObjects.GetType().Name);
+           //Debug.Log("In Test neighor  "+ gameObjects.GetType().Name);
         }
 
-        return gameObjects;
+        return this.gameObjects;
     }
 }
