@@ -28,12 +28,13 @@ public class OpenDoor : MonoBehaviour
 
     bool qualification()
     {
-        for(int i=0;i< FillObj.Length; i++)
+        for(int i=0;i< this.FillObj.Length; i++)
         {
-            if(FillObj[i].GetComponent<Renderer>().material.color != FillMaterial.color)
+            if(this.FillObj[i].GetComponent<Renderer>().material.color != this.FillMaterial.color)
             {
 
                 Debug.Log("DoorFalse");
+                Debug.Log(this.FillObj[i].gameObject.name + "this.color  " + this.FillObj[i].GetComponent<Renderer>().material.color.r + " " + this.FillObj[i].GetComponent<Renderer>().material.color.g + " " + this.FillObj[i].GetComponent<Renderer>().material.color.b + "  FillMaterial  " + this.FillMaterial.color.r + " " + this.FillMaterial.color.g + " " + this.FillMaterial.color.b);
                 return false;
                 
 

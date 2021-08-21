@@ -32,35 +32,45 @@ public class Body : MonoBehaviour
         {
             jump = false;
         }
-    }
-    /*
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.gameObject.layer == 9 && other.gameObject.tag != "Down")
+
+        if(collision.gameObject.tag == " Ladder")
         {
+    
+            moveSpeed = 0f;
+
+        }
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.tag == " Ladder")
+        {
+            Vertical = Input.GetAxis("Vertical");
 
             Vector3 move =
-                transform.forward * V +
-                transform.right * H;
-
+                transform.up * Vertical;
+                
 
 
             // 이동량을 좌표에 반영
-            transform.position -= move * 4f;// * Time.deltaTime;
+            transform.position += move * 4f * Time.deltaTime;
+
 
         }
-
     }
+
     private void OnCollisionExit(Collision collision)
     {
-        
-
-            moveSpeed = 4f;
-        
+        if (collision.gameObject.tag == " Ladder")
+        {
+            moveSpeed = 4.0f;
+        }
     }
-    */
 
-    // Update is called once per frame
+
+
+
+        // Update is called once per frame
     void Update()
     {
        
