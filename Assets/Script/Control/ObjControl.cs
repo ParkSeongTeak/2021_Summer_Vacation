@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class ObjControl : MonoBehaviour
 {
     public List<GameObject> neighborObjList = new List<GameObject>();
-
     public GameObject[] ForcedNeighbor = new GameObject[0];
     public GameObject[] BanNeighbor = new GameObject[0];
 
@@ -24,7 +23,7 @@ public class ObjControl : MonoBehaviour
     }
     public List<GameObject> GetGameObjects()
     {
-        return neighborObjList;
+        return this.neighborObjList;
     }
 
     public void Search(GameObject gameObject, Color originalColor)  //gameObject 전 오브젝트 (+바꿔야할 색의) ,originalColor 전 오브젝트의 전 색
@@ -35,7 +34,7 @@ public class ObjControl : MonoBehaviour
             this.gameObject.GetComponent<Renderer>().material.color = gameObject.GetComponent<Renderer>().material.color;// 색 바꾸기
             Debug.Log(this.gameObject.name+": "+ this.neighborObjList.Count);
 
-            for (int i = 0; i < this.neighborObjList.Count; i++)
+            for (int i = 0; i < this.neighborObjList.Count ; i++)
             {
                 Debug.Log(this.gameObject.name+": "+ i);
 
@@ -57,18 +56,19 @@ public class ObjControl : MonoBehaviour
         
         for (int i = 0; i < this.ForcedNeighbor.Length; i++)
         {
-            if(!this.neighborObjList.Contains(ForcedNeighbor[i]))
-                this.neighborObjList.Add(ForcedNeighbor[i]);
+            if(!this.neighborObjList.Contains(this.ForcedNeighbor[i]))
+                this.neighborObjList.Add(this.ForcedNeighbor[i]);
         }
         for (int i = 0; i < this.BanNeighbor.Length; i++)
         {
-            if (this.neighborObjList.Contains(ForcedNeighbor[i]))
-                this.neighborObjList.Remove(ForcedNeighbor[i]);
+            if (this.neighborObjList.Contains(this.BanNeighbor[i]))
+                this.neighborObjList.Remove(this.BanNeighbor[i]);
         }
 
-        if (this.neighborObjList[neighborObjList.Count - 1] ==null)
-            this.neighborObjList.RemoveAt(neighborObjList.Count - 1);
-        Debug.Log(transform.name +":  "+ neighborObjList.Count );
+        if (this.neighborObjList[this.neighborObjList.Count - 1] == null)
+            //Debug.Log("Why");
+            this.neighborObjList.RemoveAt(this.neighborObjList.Count - 1);
+        //Debug.Log(transform.name +":  "+ this.neighborObjList.Count );
         Destroy(this.GetComponent<GetNeighbor>());
 
     }

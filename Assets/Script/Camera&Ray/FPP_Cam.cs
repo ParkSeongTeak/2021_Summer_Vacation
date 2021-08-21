@@ -4,67 +4,56 @@ using UnityEngine;
 
 public class FPP_Cam : MonoBehaviour
 {
+    public static FPP_Cam Instance;
     public float turnSpeed = 4.0f; // 마우스 회전 속도    
     private float xRotate = 0.0f;
     public GameObject SearchRay;
+   
+    //public GameObject Lag;
+
     public float moveSpeed = 4.0f;
-    bool jump = false;
+    public bool jump = false;
 
     float Vertical = 0f;
     float Horizontal = 0f;
-    float jumpY = 20f;
-
+    public float YPos;
+    float YFirst;
+    public bool InAir = false;
+    public float YFix =20f;
     float V;
     float H;
 
-    bool trg = false;
+    public float yRotate;
 
+    bool trg = false;
+    public bool Latter = false;
     float DTime = 0.0f;
     Vector3 Pos;
+
+
+
+    float JumpForce = 200f;
     // Start is called before the first frame update
     void Start()
     {
         SearchRay = GameObject.Find("SearchRay");
-        
+        Instance = this;
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "Obj")
-        {
-            V = Vertical;
-            H = Horizontal;
-            moveSpeed = 0f;
-        }
-    }
+  
 
 
-
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.tag == "Obj")
-        {
-            moveSpeed = 0f;
-
-            Vector3 move =
-                    transform.forward * V +
-                    transform.right * H;
-
-
-            transform.position -= move * 0.01f;
-
-        }
-
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        moveSpeed = 4.0f;
-    }
+   
     // Update is called once per frame
     void Update()
     {
+        if(moveSpeed < 4.0f)
+        {
+            moveSpeed *= 2;
+            if (moveSpeed >= 4.0f)
+                moveSpeed = 4.0f;
 
+        }
         if (Time.timeScale != 0f)
         {
 
@@ -72,7 +61,7 @@ public class FPP_Cam : MonoBehaviour
             float yRotateSize = Input.GetAxis("Mouse X") * turnSpeed;
 
             // 현재 y축 회전값에 더한 새로운 회전각도 계산
-            float yRotate = transform.eulerAngles.y + yRotateSize;
+            Instance.yRotate = transform.eulerAngles.y + yRotateSize;
 
             // 위아래로 움직인 마우스의 이동량 * 속도에 따라 카메라가 회전할 양 계산(하늘, 바닥을 바라보는 동작)
             float xRotateSize = -Input.GetAxis("Mouse Y") * turnSpeed;
@@ -81,19 +70,22 @@ public class FPP_Cam : MonoBehaviour
             xRotate = Mathf.Clamp(xRotate + xRotateSize, -45, 80);
 
             // 카메라 회전량을 카메라에 반영(X, Y축만 회전)
-            transform.eulerAngles = new Vector3(xRotate, yRotate, 0);
+            transform.eulerAngles = new Vector3(xRotate, Instance.yRotate, 0);
+            //transform.eulerAngles = new Vector3(xRotate, 0, 0);
 
+
+            /*
             if (Input.GetKeyDown("space"))
             {
-                jump = true;
-
-                this.jumpY = 20f;
-                DTime = 0f;
+                this.gameObject.GetComponent<Rigidbody>().AddForce(transform.up * JumpForce);
 
             }
+            */
 
             SearchRay.transform.position = this.transform.position;
+           
 
+            /*
             Vertical = Input.GetAxis("Vertical");
             Horizontal =  Input.GetAxis("Horizontal");
 
@@ -107,42 +99,8 @@ public class FPP_Cam : MonoBehaviour
 
             // 이동량을 좌표에 반영
             transform.position += move * moveSpeed * Time.deltaTime;
+            */
             
-            
-
-
-            if (!jump) {
-                Pos = new Vector3(transform.position.x, 20, transform.position.z);
-                transform.position = Pos;
-            }
-            else
-            {
-                DTime += Time.deltaTime;
-                
-                if (DTime < 0.4f)
-                {
-                    this.jumpY += 0.01f;
-                    Pos = new Vector3(transform.position.x, this.jumpY, transform.position.z);
-                }
-                else if(DTime < 0.8f)
-                {
-                    this.jumpY -= 0.01f;
-                    Pos = new Vector3(transform.position.x, this.jumpY, transform.position.z);
-
-                }
-                else
-                {
-                    jump = false;
-                    this.jumpY = 20f;
-                    DTime = 0f;
-                }
-                transform.position = Pos;
-
-
-            }
-             
-
-
 
         }
     }

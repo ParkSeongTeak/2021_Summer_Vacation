@@ -15,8 +15,12 @@ public class ControlColor : MonoBehaviour
     Color Color;
     bool getcolor;
     bool Obj = false;
+    int _layerMask;
 
-
+    private void Awake()
+    {
+        _layerMask = 1 << LayerMask.NameToLayer("Default");
+    }
     private void Start()
     {
         Image = GameObject.Find("Canvas").transform.Find("NowColor").gameObject;
@@ -31,7 +35,7 @@ public class ControlColor : MonoBehaviour
 
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            Physics.Raycast(ray, out hit);
+            Physics.Raycast(ray, out hit,100f,_layerMask);
 
 
             if (hit.collider != null)
@@ -84,7 +88,8 @@ public class ControlColor : MonoBehaviour
 
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            Physics.Raycast(ray, out hit);
+            Physics.Raycast(ray, out hit, 100f, _layerMask);
+
 
             if (hit.collider != null)
             {
@@ -113,7 +118,8 @@ public class ControlColor : MonoBehaviour
                                 }
                                 else
                                 {
-                                    Debug.Log("Not Nei");
+                                    Debug.Log("Not Nei" + UpTouch.gameObject.name);
+
                                 }
                             }
                             else

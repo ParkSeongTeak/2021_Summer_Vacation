@@ -5,6 +5,10 @@ using UnityEngine;
 public class OpenDoor : MonoBehaviour
 {
     public GameObject[] Door = new GameObject[2];// [0]leftdoor [1]right
+    public Material FillMaterial;
+    public GameObject[] FillObj = new GameObject[0];
+
+
     public GameObject SetFalse = null;
     public GameObject SetTrue = null;
     
@@ -21,6 +25,25 @@ public class OpenDoor : MonoBehaviour
 
     bool DoorUse = false;
 
+
+    bool qualification()
+    {
+        for(int i=0;i< FillObj.Length; i++)
+        {
+            if(FillObj[i].GetComponent<Renderer>().material.color != FillMaterial.color)
+            {
+
+                Debug.Log("DoorFalse");
+                return false;
+                
+
+            }
+        }
+        Debug.Log("DoorTrue");
+
+        return true;
+    }
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -36,12 +59,9 @@ public class OpenDoor : MonoBehaviour
 
     }
     private void OnTriggerEnter(Collider MainCamera)
-    
-    //
-    //private void OnCollisionEnter(Collision MainCamera)
     {
      
-        if (MainCamera.transform.tag == "MainCamera")
+        if (MainCamera.transform.tag == "MainCamera" && qualification())
         {
             DoorUse = true;
             Debug.Log("Open");
@@ -77,7 +97,11 @@ public class OpenDoor : MonoBehaviour
                 Door[1].transform.position = Vector3.SmoothDamp(Door[1].transform.position, DoorFrom[1], ref velocity, smoothTime);
 
             }
-
+            if(timer >= 3.5f)
+            {
+                timer = 0f;
+                DoorUse = false;
+            }
 
         }
 
