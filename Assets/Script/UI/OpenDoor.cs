@@ -28,12 +28,17 @@ public class OpenDoor : MonoBehaviour
 
     bool qualification()
     {
-        for(int i=0;i< this.FillObj.Length; i++)
+        Color NeedColor = this.FillMaterial.color;
+        for (int i=0;i< this.FillObj.Length; i++)
         {
-            if(this.FillObj[i].GetComponent<Renderer>().material.color != this.FillMaterial.color)
-            {
 
-                Debug.Log("DoorFalse");
+            Color FillObjColor = this.FillObj[i].GetComponent<Renderer>().material.color;
+            if (!(Mathf.Approximately(FillObjColor.r, NeedColor.r) && Mathf.Approximately(FillObjColor.g, NeedColor.g) && Mathf.Approximately(FillObjColor.b, NeedColor.b)))
+            {
+                if (!(Mathf.Approximately(FillObjColor.r, NeedColor.r))) { Debug.Log("R"); }
+                if (!(Mathf.Approximately(FillObjColor.g, NeedColor.g))) { Debug.Log("G"); }
+                if (!(Mathf.Approximately(FillObjColor.b, NeedColor.b))) { Debug.Log("B"); }
+
                 Debug.Log(this.FillObj[i].gameObject.name + "this.color  " + this.FillObj[i].GetComponent<Renderer>().material.color.r + " " + this.FillObj[i].GetComponent<Renderer>().material.color.g + " " + this.FillObj[i].GetComponent<Renderer>().material.color.b + "  FillMaterial  " + this.FillMaterial.color.r + " " + this.FillMaterial.color.g + " " + this.FillMaterial.color.b);
                 return false;
                 
