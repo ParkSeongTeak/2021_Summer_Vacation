@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: 8924fa1c8201a5147ac1062e31108e7a
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - BankGothic Lt BT
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: d84dc342034d0af48a0814bc468d3f86, type: 3}
+  - {fileID: 12800000, guid: 1189aac4777d1724a81421afad6cd8ae, type: 3}
+  - {fileID: 12800000, guid: 21c68d2b97e1ff247aeaaba3722ea3d7, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
