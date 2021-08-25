@@ -74,32 +74,7 @@ public class FPP_Cam : MonoBehaviour
             //transform.eulerAngles = new Vector3(xRotate, 0, 0);
 
 
-            /*
-            if (Input.GetKeyDown("space"))
-            {
-                this.gameObject.GetComponent<Rigidbody>().AddForce(transform.up * JumpForce);
-
-            }
-            */
-
             SearchRay.transform.position = this.transform.position;
-           
-
-            /*
-            Vertical = Input.GetAxis("Vertical");
-            Horizontal =  Input.GetAxis("Horizontal");
-
-
-
-            Vector3 move =
-                transform.forward * Vertical +
-                transform.right * Horizontal;
-
-                
-
-            // 이동량을 좌표에 반영
-            transform.position += move * moveSpeed * Time.deltaTime;
-            */
             
 
         }

@@ -33,9 +33,9 @@ public class Body : MonoBehaviour
             jump = false;
         }
 
-        if(collision.gameObject.tag == " Ladder")
+        if(collision.gameObject.tag == "Ladder")
         {
-    
+            this.gameObject.GetComponent<Rigidbody>().useGravity = false;
             moveSpeed = 0f;
 
         }
@@ -43,15 +43,16 @@ public class Body : MonoBehaviour
 
     private void OnCollisionStay(Collision collision)
     {
-        if (collision.gameObject.tag == " Ladder")
+        if (collision.gameObject.tag == "Ladder")
         {
             Vertical = Input.GetAxis("Vertical");
+            Horizontal = Input.GetAxis("Horizontal");
 
             Vector3 move =
-                transform.up * Vertical;
-                
+                transform.up * Vertical + transform.right * Horizontal; ;
 
 
+            Debug.Log("Ladder");
             // 이동량을 좌표에 반영
             transform.position += move * 4f * Time.deltaTime;
 
@@ -61,8 +62,10 @@ public class Body : MonoBehaviour
 
     private void OnCollisionExit(Collision collision)
     {
-        if (collision.gameObject.tag == " Ladder")
+        if (collision.gameObject.tag == "Ladder")
         {
+            this.gameObject.GetComponent<Rigidbody>().useGravity = true;
+
             moveSpeed = 4.0f;
         }
     }

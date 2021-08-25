@@ -5,7 +5,7 @@ using UnityEngine;
 public class OpenDoor : MonoBehaviour
 {
     public GameObject[] Door = new GameObject[2];// [0]leftdoor [1]right
-    public Material FillMaterial;
+    public Material FillMaterial = null;
     public GameObject[] FillObj = new GameObject[0];
 
 
@@ -28,25 +28,27 @@ public class OpenDoor : MonoBehaviour
 
     bool qualification()
     {
-        Color NeedColor = this.FillMaterial.color;
-        for (int i=0;i< this.FillObj.Length; i++)
-        {
-
-            Color FillObjColor = this.FillObj[i].GetComponent<Renderer>().material.color;
-            if (!(Mathf.Approximately(FillObjColor.r, NeedColor.r) && Mathf.Approximately(FillObjColor.g, NeedColor.g) && Mathf.Approximately(FillObjColor.b, NeedColor.b)))
+        Debug.Log("Hello");
+        if (FillMaterial != null) {
+            Color NeedColor = this.FillMaterial.color;
+            for (int i = 0; i < this.FillObj.Length; i++)
             {
-                if (!(Mathf.Approximately(FillObjColor.r, NeedColor.r))) { Debug.Log("R"); }
-                if (!(Mathf.Approximately(FillObjColor.g, NeedColor.g))) { Debug.Log("G"); }
-                if (!(Mathf.Approximately(FillObjColor.b, NeedColor.b))) { Debug.Log("B"); }
 
-                Debug.Log(this.FillObj[i].gameObject.name + "this.color  " + this.FillObj[i].GetComponent<Renderer>().material.color.r + " " + this.FillObj[i].GetComponent<Renderer>().material.color.g + " " + this.FillObj[i].GetComponent<Renderer>().material.color.b + "  FillMaterial  " + this.FillMaterial.color.r + " " + this.FillMaterial.color.g + " " + this.FillMaterial.color.b);
-                return false;
-                
+                Color FillObjColor = this.FillObj[i].GetComponent<Renderer>().material.color;
+                if( !((FillObjColor.r > NeedColor.r - 0.0039f) && (FillObjColor.r < NeedColor.r + 0.0039f) && (FillObjColor.g > NeedColor.g - 0.0039f) &&  (FillObjColor.g < NeedColor.g + 0.0039f) && (FillObjColor.b > NeedColor.b - 0.0039f) && (FillObjColor.b < NeedColor.b + 0.0039f)))
+                {
+                    if (!(Mathf.Approximately(FillObjColor.r, NeedColor.r))) { Debug.Log("R"); }
+                    if (!(Mathf.Approximately(FillObjColor.g, NeedColor.g))) { Debug.Log("G"); }
+                    if (!(Mathf.Approximately(FillObjColor.b, NeedColor.b))) { Debug.Log("B"); }
 
+                    Debug.Log(this.FillObj[i].gameObject.name + "this.color  " + this.FillObj[i].GetComponent<Renderer>().material.color.r + " " + this.FillObj[i].GetComponent<Renderer>().material.color.g + " " + this.FillObj[i].GetComponent<Renderer>().material.color.b + "  FillMaterial  " + this.FillMaterial.color.r + " " + this.FillMaterial.color.g + " " + this.FillMaterial.color.b);
+                    return false;
+
+
+                }
             }
+            Debug.Log("DoorTrue");
         }
-        Debug.Log("DoorTrue");
-
         return true;
     }
 

@@ -15,8 +15,11 @@ public class ControlColor : MonoBehaviour
     Color Color;
     bool getcolor;
     bool Obj = false;
-    int _layerMask;
+    bool AdditionalMixing = false;
 
+
+    int _layerMask;
+    Vector3 MousePos;
     private void Awake()
     {
         _layerMask = 1 << LayerMask.NameToLayer("Default");
@@ -31,7 +34,11 @@ public class ControlColor : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            Vector3 MousePos = Input.mousePosition;
+            this.Obj = false;
+
+            this.AdditionalMixing = false;
+
+            MousePos = Input.mousePosition;
 
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -49,9 +56,17 @@ public class ControlColor : MonoBehaviour
                     DownTouch.GetComponent<GetTool>().SetTool();
                 }
 
+                if(DownTouch.gameObject.tag == "AdditionalMixing")
+                {
+
+                    Debug.Log("AdditionalMixing");
+                    StartCoroutine(ScreenShotAndSpoid());
+                    this.AdditionalMixing = true;
+                }
+
                 if (DownTouch.gameObject.tag == "Obj")
                 {
-                    Obj = true;
+                    this.Obj = true;
                     switch (GameManager.Instance.UsingTool)
                     {
 
@@ -96,7 +111,18 @@ public class ControlColor : MonoBehaviour
 
                 Debug.Log("UpTouch");
                 UpTouch = hit.transform.gameObject;
-                if (Obj)
+                if (this.AdditionalMixing)
+                {
+                    GameObject gameObject = new GameObject();
+                    gameObject.AddComponent<Renderer>();
+                    gameObject.GetComponent<Renderer>().material.color = Color;
+                    UpTouch.GetComponent<ObjControl>().Search(gameObject, Color);
+
+                    Destroy(gameObject);
+                    
+                }
+
+                if (this.Obj)
                 {
                     switch (GameManager.Instance.UsingTool)
                     {
@@ -138,19 +164,39 @@ public class ControlColor : MonoBehaviour
                             GameManager.Instance.Setcolor(UpTouch.GetComponent<Renderer>().material.color);
                             Image.GetComponent<Image>().color = GameManager.Instance.Getcolor();
                             //SaveObj = CurrentTouch;
-                            GameManager.Instance.saveColor = false;
+                            GameManager.Instance.saveColor =  false;
                             Debug.Log("False");
                             // CurrentTouch  . ->  search (CurrentTouch CurrentTouch.color() )
                             // 
                             break;
 
                     }
-                    Obj = false;
+                    this.Obj = false;
                 }
             }
 
 
 
         }
+    
+    
+    
     }
+
+    IEnumerator ScreenShotAndSpoid()
+    {
+        //스크린샷을 찍어, 그것을 Texture2D로 반환시키고 그곳에서 색을 추출!!
+        Texture2D tex = new Texture2D(Screen.width, Screen.height, TextureFormat.RGB24, false);
+        yield return new WaitForEndOfFrame();
+        tex.ReadPixels(new Rect(0, 0, Screen.width, Screen.height), 0, 0);
+        tex.Apply();
+
+        //추출된 색
+        Color = tex.GetPixel((int)MousePos.x, (int)MousePos.y);
+
+        Debug.Log("r: " + Color.r + "g: " + Color.g + "b: " + Color.b);
+
+        //color.GetComponent<Renderer>().material.color = color;
+    }
+
 }

@@ -8,6 +8,9 @@ TagManager:
   - Tool
   - Ladder
   - Down
+  - AdditionalMixing
+  - NextLevel
+  - Body
   layers:
   - Default
   - TransparentFX
