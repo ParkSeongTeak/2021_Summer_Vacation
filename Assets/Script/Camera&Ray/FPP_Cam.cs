@@ -8,7 +8,11 @@ public class FPP_Cam : MonoBehaviour
     public float turnSpeed = 4.0f; // 마우스 회전 속도    
     private float xRotate = 0.0f;
     public GameObject SearchRay;
-   
+    GameObject Controller;
+
+    public GameObject[] TileReset = new GameObject[0];//
+
+
     //public GameObject Lag;
 
     public float moveSpeed = 4.0f;
@@ -36,12 +40,19 @@ public class FPP_Cam : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Controller = GameObject.Find("controller");
         SearchRay = GameObject.Find("SearchRay");
         Instance = this;
     }
 
   
+    public void TileRe()
+    {
+        GameManager.Instance.nowPoint = 0;
+        Controller.GetComponent<ControlColor>().Point.text = "P: " + GameManager.Instance.nowPoint;
 
+        TileReset[GameManager.Instance.RoomNum].GetComponent<OpenDoor>().TileReset();
+    }
 
    
     // Update is called once per frame

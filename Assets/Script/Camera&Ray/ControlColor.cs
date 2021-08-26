@@ -6,10 +6,11 @@ using UnityEngine.UI;
 
 public class ControlColor : MonoBehaviour
 {
+    
     GameObject Image;
     GameObject DownTouch;
     GameObject UpTouch;
-
+    public Text Point;
 
     GameObject SaveObj;
     Color Color;
@@ -71,8 +72,7 @@ public class ControlColor : MonoBehaviour
                     {
 
                         case 1:
-
-
+                           
                             break;
                         case 2:
 
@@ -139,6 +139,8 @@ public class ControlColor : MonoBehaviour
                                     if (DownTouch.GetComponent<Renderer>().material.color != UpTouch.GetComponent<Renderer>().material.color)
                                     {
                                         UpTouch.GetComponent<ObjControl>().Search(DownTouch, UpTouch.GetComponent<Renderer>().material.color);
+                                        GameManager.Instance.nowPoint += 10;
+                                        Point.text = "P: " + GameManager.Instance.nowPoint;
 
                                     }
                                 }

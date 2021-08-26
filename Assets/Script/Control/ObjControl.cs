@@ -9,7 +9,7 @@ public class ObjControl : MonoBehaviour
     public GameObject[] ForcedNeighbor = new GameObject[0];
     public GameObject[] BanNeighbor = new GameObject[0];
 
-    Color VeryFirst;
+    public Color VeryFirst;
 
 
 

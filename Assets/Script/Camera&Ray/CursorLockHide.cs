@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class CursorLockHide : MonoBehaviour
 {
-    bool vis = false;
+    bool vis = true;
     // Start is called before the first frame update
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.lockState = CursorLockMode.None;
         //마우스 커서 보이지 않게함
-        Cursor.visible = false;
-        this.vis = false;
+        Cursor.visible = true;
+        this.vis = true;
     }
 
     // Update is called once per frame
@@ -38,5 +38,20 @@ public class CursorLockHide : MonoBehaviour
         }
         //Q키를 누르면 마우스 커서를 게임 중앙 좌표에 고정시키고 마우스 커서 안보임
 
+    }
+
+    public void CursorTrue()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        // 마우스 커서 보이게 함
+        Cursor.visible = true;
+        this.vis = true;
+    }
+    public void CursorFalse()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        //마우스 커서 보이지 않게함
+        Cursor.visible = false;
+        this.vis = false;
     }
 }

@@ -11,9 +11,11 @@ public class GameManager : MonoBehaviour
     public bool saveColor;
     Color Color;
 
-    
-    
-    
+    public int RoomNum = 0;
+    int[] RoomPoint = new int[7];
+    public int nowPoint = 0;
+
+
     //Tool 
     public int[] Tool = new int[5];// 0: NoTool 1: Brush 2: 인지색전이
     string[] ToolSave = new string[5];

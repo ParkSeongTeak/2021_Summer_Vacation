@@ -7,11 +7,11 @@ public class OpenDoor : MonoBehaviour
     public GameObject[] Door = new GameObject[2];// [0]leftdoor [1]right
     public Material FillMaterial = null;
     public GameObject[] FillObj = new GameObject[0];
-
-
     public GameObject SetFalse = null;
     public GameObject SetTrue = null;
-    
+    GameObject Controller;
+
+
     Vector3[] DoorTo = new Vector3[2];
     Vector3[] DoorFrom = new Vector3[2];
 
@@ -24,6 +24,8 @@ public class OpenDoor : MonoBehaviour
 
 
     bool DoorUse = false;
+    public bool PointZero = false;
+    public int RoomNum = 0;
 
 
     bool qualification()
@@ -55,6 +57,7 @@ public class OpenDoor : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
+        Controller = GameObject.Find("controller");
         DoorFrom[0] = Door[0].transform.position;
         DoorFrom[1] = Door[1].transform.position;
         Direction = new Vector3(x, y, z);
@@ -71,6 +74,14 @@ public class OpenDoor : MonoBehaviour
      
         if (MainCamera.transform.tag == "MainCamera" && qualification())
         {
+            if(RoomNum != 0)
+                GameManager.Instance.RoomNum = RoomNum;
+            if (PointZero)
+            {
+                GameManager.Instance.nowPoint = 0;
+                Controller.GetComponent<ControlColor>().Point.text = "P: " + GameManager.Instance.nowPoint;
+
+            }
             DoorUse = true;
             Debug.Log("Open");
 
@@ -113,5 +124,14 @@ public class OpenDoor : MonoBehaviour
 
         }
 
+    }
+
+
+    public void TileReset()
+    {
+        for(int i = 0 ; i <  FillObj.Length ; i++)
+        {
+            FillObj[i].GetComponent<Renderer>().material.color = FillObj[i].GetComponent<ObjControl>().VeryFirst;
+        }
     }
 }
