@@ -8,6 +8,8 @@ public class GetTool : MonoBehaviour
     public int OtherPiecenum =1;
     public GameObject[] OtherPiece;
     public GameObject button;
+    public GameObject ToolBox;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,8 +31,7 @@ public class GetTool : MonoBehaviour
         }
         this.gameObject.SetActive(false);
 
-        this.button.SetActive(true);
-
+        ToolBox.GetComponent<Tool>().ToolStateSet(this.num, 1);
     }
 
 

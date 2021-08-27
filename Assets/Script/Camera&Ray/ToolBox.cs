@@ -6,7 +6,7 @@ public class ToolBox : MonoBehaviour
 {
     public static ToolBox Instance;
 
-    public GameObject[] NowToolImg = new GameObject[4];
+    public GameObject[] NowToolImg = new GameObject[5];
 
     float RotateSpeed = 5f;
     int cnt = 0;
