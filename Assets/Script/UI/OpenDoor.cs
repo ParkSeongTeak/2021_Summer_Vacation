@@ -9,7 +9,10 @@ public class OpenDoor : MonoBehaviour
     public GameObject[] FillObj = new GameObject[0];
     public GameObject SetFalse = null;
     public GameObject SetTrue = null;
+    public GameObject Blocker = null;
     GameObject Controller;
+
+    
 
 
     Vector3[] DoorTo = new Vector3[2];
@@ -20,18 +23,24 @@ public class OpenDoor : MonoBehaviour
 
     float timer = 0.0f;
     float smoothTime = 0.015f;
-    private Vector3 velocity = Vector3.zero;
+    private Vector3 velocity1 = Vector3.zero;
+    private Vector3 velocity2 = Vector3.zero;
+
 
 
     bool DoorUse = false;
     public bool PointZero = false;
     public int RoomNum = 0;
 
+    public bool doorOpen = false;
+    public bool doorClose = false;
+
+
 
     bool qualification()
     {
-        Debug.Log("Hello");
-        if (FillMaterial != null) {
+        
+        if (this.FillMaterial != null && this.doorOpen) {
             Color NeedColor = this.FillMaterial.color;
             for (int i = 0; i < this.FillObj.Length; i++)
             {
@@ -58,11 +67,11 @@ public class OpenDoor : MonoBehaviour
     private void Start()
     {
         Controller = GameObject.Find("controller");
-        DoorFrom[0] = Door[0].transform.position;
-        DoorFrom[1] = Door[1].transform.position;
-        Direction = new Vector3(x, y, z);
-        DoorTo[0] = Door[0].transform.position + Direction;
-        DoorTo[1] = Door[1].transform.position - Direction;
+        this.DoorFrom[0] = this.Door[0].transform.position;
+        this.DoorFrom[1] = this.Door[1].transform.position;
+        this.Direction = new Vector3(x, y, z);
+        this.DoorTo[0] = this.Door[0].transform.position + this.Direction;
+        this.DoorTo[1] = this.Door[1].transform.position - this.Direction;
         //Debug.Log("DoorVec[0]" + DoorTo[0]);
         //Debug.Log("DoorVec[1]" + DoorTo[1]);
 
@@ -71,58 +80,83 @@ public class OpenDoor : MonoBehaviour
     }
     private void OnTriggerEnter(Collider MainCamera)
     {
-     
-        if (MainCamera.transform.tag == "MainCamera" && qualification())
+        if (this.doorOpen)
         {
-            if(RoomNum != 0)
-                GameManager.Instance.RoomNum = RoomNum;
-            if (PointZero)
+
+            if (MainCamera.transform.tag == "MainCamera" && qualification())
             {
-                GameManager.Instance.nowPoint = 0;
-                Controller.GetComponent<ControlColor>().Point.text = "P: " + GameManager.Instance.nowPoint;
+                if (this.RoomNum != 0)
+                    GameManager.Instance.RoomNum = RoomNum;
+                if (this.PointZero)
+                {
+                    GameManager.Instance.nowPoint = 0;
+                    Controller.GetComponent<ControlColor>().Point.text = "  " + GameManager.Instance.nowPoint;
 
+                }
+                this.DoorUse = true;
+
+                /*
+                if (this.SetFalse != null)
+                {
+                    this.SetFalse.SetActive(false);
+                }
+
+                if (this.SetTrue != null)
+                {
+                    this.SetTrue.SetActive(true);
+                }
+                */
             }
-            DoorUse = true;
-            Debug.Log("Open");
-
-            if (SetFalse != null)
+        }
+        if (this.doorClose)
+        {
+            this.DoorUse = true;
+            if (this.Blocker != null)
             {
-                SetFalse.SetActive(false);
+                this.Blocker.SetActive(true);
             }
-
-            if (SetTrue != null)
-            {
-                SetTrue.SetActive(true);
-            }
-
         }
 
-        
+
     }
     
     void Update()
     {
-        if (DoorUse)
+        if (this.DoorUse)
         {
-            timer += Time.deltaTime;
-            if (timer < 2.5f)
+            if (this.doorOpen)
             {
-                Door[0].transform.position = Vector3.SmoothDamp(Door[0].transform.position, DoorTo[0], ref velocity, smoothTime);
-                Door[1].transform.position = Vector3.SmoothDamp(Door[1].transform.position, DoorTo[1], ref velocity, smoothTime);
-            }
-            else
-            {
-                Door[0].transform.position = Vector3.SmoothDamp(Door[0].transform.position, DoorFrom[0], ref velocity, smoothTime);
-                Door[1].transform.position = Vector3.SmoothDamp(Door[1].transform.position, DoorFrom[1], ref velocity, smoothTime);
+                this.timer += Time.deltaTime;
+                if (this.timer < 2.5f)
+                {
+                    this.Door[0].transform.position = Vector3.SmoothDamp(this.Door[0].transform.position, this.DoorTo[0], ref this.velocity1, this.smoothTime);
+                    this.Door[1].transform.position = Vector3.SmoothDamp(this.Door[1].transform.position, this.DoorTo[1], ref this.velocity2, this.smoothTime);
+                }
+                if (this.timer >= 3.5f)
+                {
+                    this.timer = 0f;
+                    this.DoorUse = false;
+                }
 
             }
-            if(timer >= 3.5f)
+
+            if (this.doorClose)
             {
-                timer = 0f;
-                DoorUse = false;
+                this.timer += Time.deltaTime;
+                if (this.timer < 2.5f)
+                {
+                    this.Door[0].transform.position = Vector3.SmoothDamp(this.Door[0].transform.position, this.DoorFrom[0], ref this.velocity1, this.smoothTime);
+                    this.Door[1].transform.position = Vector3.SmoothDamp(this.Door[1].transform.position, this.DoorFrom[1], ref this.velocity2, this.smoothTime);
+                }
+                if (this.timer >= 3.5f)
+                {
+                    this.timer = 0f;
+                    this.DoorUse = false;
+                }
             }
 
         }
+        
 
     }
 

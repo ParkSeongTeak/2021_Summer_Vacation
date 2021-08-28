@@ -140,7 +140,7 @@ public class ControlColor : MonoBehaviour
                                     {
                                         UpTouch.GetComponent<ObjControl>().Search(DownTouch, UpTouch.GetComponent<Renderer>().material.color);
                                         GameManager.Instance.nowPoint += 10;
-                                        Point.text = "P: " + GameManager.Instance.nowPoint;
+                                        Point.text =  GameManager.Instance.nowPoint + "";
 
                                     }
                                 }
