@@ -115,6 +115,8 @@ public class OpenDoor : MonoBehaviour
         if (this.doorOpen)
         {
 
+
+
             if (MainCamera.transform.tag == "MainCamera" && qualification())
             {
                 if (this.RoomNum != 0)
