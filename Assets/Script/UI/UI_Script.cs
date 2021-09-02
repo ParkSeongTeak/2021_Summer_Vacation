@@ -11,13 +11,13 @@ public class UI_Script : MonoBehaviour
 
     public void Pause()
     {
-        Time.timeScale = 0f;
+        //Time.timeScale = 0f;
         PausePopUp.SetActive(true);
     }
 
     public void Resume()
     {
-        Time.timeScale = 1f;
+        //Time.timeScale = 1f;
         PausePopUp.SetActive(false);
     }
 
@@ -28,7 +28,7 @@ public class UI_Script : MonoBehaviour
 
     public void ToMainMenu()
     {
-        Time.timeScale = 1f;
+        //Time.timeScale = 1f;
 
         SceneManager.LoadScene("MainMenu");
     }

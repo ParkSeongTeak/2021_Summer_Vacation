@@ -4305,6 +4305,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pfClone: {fileID: 259088956}
   TextBoard: {fileID: 326051270}
+  GameButton:
+  - {fileID: 572458388}
+  - {fileID: 897318485}
 --- !u!114 &326051273
 MonoBehaviour:
   m_ObjectHideFlags: 0
