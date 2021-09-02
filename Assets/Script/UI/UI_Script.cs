@@ -28,6 +28,8 @@ public class UI_Script : MonoBehaviour
 
     public void ToMainMenu()
     {
+        Time.timeScale = 1f;
+
         SceneManager.LoadScene("MainMenu");
     }
 

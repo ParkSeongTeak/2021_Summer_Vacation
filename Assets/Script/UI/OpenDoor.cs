@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class OpenDoor : MonoBehaviour
 {
@@ -10,10 +11,19 @@ public class OpenDoor : MonoBehaviour
     public GameObject SetFalse = null;
     public GameObject SetTrue = null;
     public GameObject Blocker = null;
+    public bool PointZero = false;
+    public int RoomNum = 0;
+
+    public bool doorOpen = false;
+    public bool doorClose = false;
+
+    public bool RoomNumSave = false;
+    Text RoomNumText;
+    Text RoomGoalText;
+    public Text RoomAvailableText;
+
+
     GameObject Controller;
-
-    
-
 
     Vector3[] DoorTo = new Vector3[2];
     Vector3[] DoorFrom = new Vector3[2];
@@ -26,18 +36,13 @@ public class OpenDoor : MonoBehaviour
     private Vector3 velocity1 = Vector3.zero;
     private Vector3 velocity2 = Vector3.zero;
 
-
-
     bool DoorUse = false;
-    public bool PointZero = false;
-    public int RoomNum = 0;
 
-    public bool doorOpen = false;
-    public bool doorClose = false;
+    string[] RoomGoalTextStr = new string[7];
 
+    int[] availablePoint = new int[7];
 
-
-    bool qualification()
+    public bool qualification()
     {
         
         if (this.FillMaterial != null && this.doorOpen) {
@@ -63,9 +68,20 @@ public class OpenDoor : MonoBehaviour
         return true;
     }
 
+    public void SetDoorUseTrue()
+    {
+        this.DoorUse = true;
+    }
+    public void SetDoorUseFalse()
+    {
+        this.DoorUse = false;
+    }
     // Start is called before the first frame update
     private void Start()
     {
+        RoomAvailableText = GameObject.Find("PointMax").GetComponent<Text>();
+        RoomNumText = GameObject.Find("StageText").GetComponent<Text>();
+        RoomGoalText = GameObject.Find("GoalText").GetComponent<Text>();
         Controller = GameObject.Find("controller");
         this.DoorFrom[0] = this.Door[0].transform.position;
         this.DoorFrom[1] = this.Door[1].transform.position;
@@ -74,7 +90,23 @@ public class OpenDoor : MonoBehaviour
         this.DoorTo[1] = this.Door[1].transform.position - this.Direction;
         //Debug.Log("DoorVec[0]" + DoorTo[0]);
         //Debug.Log("DoorVec[1]" + DoorTo[1]);
+        RoomGoalTextStr[0] = "모든 벽면을 백색으로 변경하십시오1-1";
+        RoomGoalTextStr[1] = "모든 벽면을 백색으로 변경하십시오1-2";
+        RoomGoalTextStr[2] = "모든 벽면을 백색으로 변경하십시오1-3";
+        RoomGoalTextStr[3] = "모든 벽면을 백색으로 변경하십시오1-4";
+        RoomGoalTextStr[4] = "모든 벽면을 백색으로 변경하십시오1-5";
+        RoomGoalTextStr[5] = "모든 벽면을 백색으로 변경하십시오1-6";
+        RoomGoalTextStr[6] = "모든 벽면을 백색으로 변경하십시오1-7";
+        availablePoint[0] = 20;    //1-1
+        availablePoint[1] = 20;
+        availablePoint[2] = 20;
+        availablePoint[3] = 50;
+        availablePoint[4] = 30;
+        availablePoint[5] = 50;
+        availablePoint[6] = 40;    //1-7
 
+
+        GameManager.Instance.availablePoint = availablePoint[GameManager.Instance.RoomNum - 1];
 
 
     }
@@ -111,9 +143,20 @@ public class OpenDoor : MonoBehaviour
         if (this.doorClose)
         {
             this.DoorUse = true;
+
             if (this.Blocker != null)
             {
                 this.Blocker.SetActive(true);
+            }
+
+            if (RoomNumSave)
+            {
+                GameManager.Instance.SetRoomNum(RoomNum + 1);
+                RoomNumText.text = "STAGE 1-"+ (RoomNum + 1)+"";
+                RoomAvailableText.text = "/" + availablePoint[RoomNum];
+                GameManager.Instance.availablePoint = availablePoint[RoomNum];
+                RoomGoalText.text = RoomGoalTextStr[RoomNum];
+                Controller.GetComponent<ControlColor>().ClearBG.SetActive(false);
             }
         }
 
@@ -163,9 +206,9 @@ public class OpenDoor : MonoBehaviour
 
     public void TileReset()
     {
-        for(int i = 0 ; i <  FillObj.Length ; i++)
+        for(int i = 0 ; i < this.FillObj.Length ; i++)
         {
-            FillObj[i].GetComponent<Renderer>().material.color = FillObj[i].GetComponent<ObjControl>().VeryFirst;
+            this.FillObj[i].GetComponent<Renderer>().material.color = this.FillObj[i].GetComponent<ObjControl>().VeryFirst;
         }
     }
 }

@@ -17,6 +17,7 @@ public class Opacity : MonoBehaviour
 
     void Start()
     {
+        
         spr = this.gameObject.GetComponent<Image>();
 
         this.color = spr.color;
@@ -27,8 +28,7 @@ public class Opacity : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-
-
+        
         this.timer += Time.deltaTime;
 
         if (timer > activetime)
@@ -36,7 +36,7 @@ public class Opacity : MonoBehaviour
             if (spr.color.a <1) {
                 this.color.a += 0.03f;
                 spr.color = this.color;
-                Debug.Log("Up" + spr.color.a);
+                //Debug.Log("Up" + spr.color.a);
             }
             else 
             {
@@ -54,52 +54,16 @@ public class Opacity : MonoBehaviour
                         {
                             this.color.a -= 0.03f;
                             spr.color = this.color;
-                            Debug.Log("Up" + spr.color.a);
+                            //Debug.Log("Up" + spr.color.a);
                         }
                     }
                 }
             }
-
-            //this.gameObject.GetComponent<SpriteRenderer>().color = color;
-
-            /*
-            if (this.glowtimer >= 0.5f)
+            if(timer > firstTime + 1f)
             {
-                this.glowtimer = 0.0f;
-                this.up = !this.up;
-
+                timer = 0f;
             }
-
-            if (this.up)
-            {
-
-                if (this.color.a > 0)
-                {
-                    this.color.a -= 0.03f;
-                    spr.color = this.color;
-
-                    Debug.Log("D" + spr.color.a);
-                    //this.gameObject.GetComponent<SpriteRenderer>().color = color;
-                }
-            }
-            else
-            {
-                if (this.color.a < 1)
-                {
-                    this.color.a += 0.03f;
-                    spr.color = this.color;
-                    Debug.Log("Up" + spr.color.a);
-
-                    //this.gameObject.GetComponent<SpriteRenderer>().color = color;
-                }
-
-            }
-
-            if (this.timer > 3.0f)
-            {
-                Destroy(this.gameObject);
-            }
-            */
+            
         }
     }
 }

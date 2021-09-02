@@ -12,12 +12,14 @@ public class Menubutton : MonoBehaviour
 
     public GameObject[] StartImg = new GameObject[2];
 
-    GameObject Target = null;
+    public GameObject Target = null;
     //public Transform target;
     public float smoothTime = 0.3f;
     private Vector3 velocity = Vector3.zero;
     Vector3 targetPosition = new Vector3(417, 540, 0);    //Canvas(960,540,0)
     int idx;
+
+    //Vector3 Plus = new Vector3(5f, 0, 0);
     private void Start()
     {
         for (int i = 0; i < SlideImgNum; i++)
@@ -25,15 +27,17 @@ public class Menubutton : MonoBehaviour
             SlideImgPos[i] = SlideImg[i].transform.position;
         }
     }
-    void Update()
+    void FixedUpdate()
     {
         if (Target != null)
         {
+            //Debug.Log("Update");
             // Define a target position above and behind the target transform
             //Vector3 targetPosition = Target.transform.TransformPoint(new Vector3(0, 5, -10));
 
             // Smoothly move the camera towards that target position
             Target.transform.position = Vector3.SmoothDamp(Target.transform.position, targetPosition, ref velocity, smoothTime);
+            //Target.transform.position += Plus;
         }
 
 
@@ -42,14 +46,14 @@ public class Menubutton : MonoBehaviour
 
     public void StartButton()
     {
-        Invoke("LoadGame", 4.5f);
+        Debug.Log("Stage_1");
         idx = 0;
         Target = SlideImg[idx];
         StartImg[0].SetActive(true);
         StartImg[1].SetActive(true);
+        Invoke("LoadGame", 2.5f);
 
     }
-
 
     void LoadGame()
     {

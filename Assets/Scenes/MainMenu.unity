@@ -725,6 +725,7 @@ MonoBehaviour:
   StartImg:
   - {fileID: 1152238970}
   - {fileID: 1356262430}
+  Target: {fileID: 0}
   smoothTime: 0.3
 --- !u!1 &1145737067
 GameObject:
@@ -1203,7 +1204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37a70fe67bbf91a4cb4cdb3a083bd62d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activetime: 2.5
+  activetime: 1.7
 --- !u!1 &1491538844
 GameObject:
   m_ObjectHideFlags: 0
@@ -1411,7 +1412,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1436,6 +1437,56 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1595174155}
   m_CullTransparentMesh: 0
+--- !u!1 &1700907232
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1700907233}
+  - component: {fileID: 1700907234}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1700907233
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1700907232}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 215, y: 337, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1700907234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1700907232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f01508ad5bcba5e499a08829f2b44cf9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saveColor: 0
+  StageNum: 1
+  RoomNum: 1
+  nowPoint: 0
+  availablePoint: 20
+  Tool: 0000000000000000000000000000000000000000
+  UsingTool: 0
 --- !u!1 &1843917082
 GameObject:
   m_ObjectHideFlags: 0

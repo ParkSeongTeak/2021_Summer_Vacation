@@ -24,7 +24,39 @@ public class Body : MonoBehaviour
 
     float JumpForce = 200f;
 
-    
+    Vector3[,] StartLocation = new Vector3[7, 2]; //  [ RoomNum - 1 location, RoomNum - 1 rotation] 
+
+
+    private void Start()
+    {
+        StartLocation[0, 0] = new Vector3(20, 21, 20);
+        StartLocation[0, 1] = new Vector3(0, 180 , 0);
+
+        StartLocation[1, 0] = new Vector3(20, 21, 10);
+        StartLocation[1, 1] = new Vector3(0, 180, 0);
+
+        StartLocation[2, 0] = new Vector3(20, 21, 0);
+        StartLocation[2, 1] = new Vector3(0, 180, 0);
+
+        StartLocation[3, 0] = new Vector3(6, 21, -8);
+        StartLocation[3, 1] = new Vector3(0, -90, 0);
+
+        StartLocation[4, 0] = new Vector3(-4, 21, -8);
+        StartLocation[4, 1] = new Vector3(0, -90, 0);
+
+        StartLocation[5, 0] = new Vector3(-18, 21, -8);
+        StartLocation[5, 1] = new Vector3(0, -90, 0);
+
+        StartLocation[6, 0] = new Vector3(-26, 21, 5);
+        StartLocation[6, 1] = new Vector3(0, 0, 0);
+
+
+        transform.position = StartLocation[GameManager.Instance.RoomNum - 1, 0];
+        transform.eulerAngles = StartLocation[GameManager.Instance.RoomNum - 1, 1];
+
+        
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
 
@@ -89,7 +121,7 @@ public class Body : MonoBehaviour
                 if (!jump)
                 {
                     Debug.Log("Jump");
-                    this.gameObject.GetComponent<Rigidbody>().AddForce(transform.up * JumpForce * 60f);
+                    this.gameObject.GetComponent<Rigidbody>().AddForce(transform.up * JumpForce * 30f);
                     jump = true;
                 }
             }

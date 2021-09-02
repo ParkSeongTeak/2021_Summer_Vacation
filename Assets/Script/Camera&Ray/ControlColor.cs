@@ -11,6 +11,7 @@ public class ControlColor : MonoBehaviour
     GameObject DownTouch;
     GameObject UpTouch;
     public Text Point;
+    public GameObject ClearBG;
 
     GameObject SaveObj;
     Color Color;
@@ -141,6 +142,14 @@ public class ControlColor : MonoBehaviour
                                         UpTouch.GetComponent<ObjControl>().Search(DownTouch, UpTouch.GetComponent<Renderer>().material.color);
                                         GameManager.Instance.nowPoint += 10;
                                         Point.text =  GameManager.Instance.nowPoint + "";
+                                        if(GameManager.Instance.nowPoint == GameManager.Instance.availablePoint)
+                                        {
+                                            if (FPP_Cam.Instance.TileReset[GameManager.Instance.RoomNum-1].GetComponent<OpenDoor>().qualification())
+                                            {
+                                                ClearBG.SetActive(true);
+                                                FPP_Cam.Instance.TileReset[GameManager.Instance.RoomNum - 1].GetComponent<OpenDoor>().SetDoorUseTrue();
+                                            }
+                                        }
 
                                     }
                                 }
