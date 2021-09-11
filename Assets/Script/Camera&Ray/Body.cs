@@ -71,6 +71,17 @@ public class Body : MonoBehaviour
             moveSpeed = 0f;
 
         }
+        
+        if(collision.gameObject.layer == 9)
+        {
+            if (collision.gameObject.tag != "Down")
+            {
+                V = Vertical;
+                H = Horizontal;
+
+                moveSpeed = 0f;
+            }
+        }
     }
 
     private void OnCollisionStay(Collision collision)
@@ -90,6 +101,20 @@ public class Body : MonoBehaviour
 
 
         }
+        
+        if (collision.gameObject.layer == 9)
+        {
+            if (collision.gameObject.tag != "Down")
+            {
+                Vector3 move =
+                transform.up * (-V) + transform.right * (-H); ;
+
+
+                transform.position += move * Time.deltaTime;
+
+            }
+        }
+
     }
 
     private void OnCollisionExit(Collision collision)
@@ -99,6 +124,13 @@ public class Body : MonoBehaviour
             this.gameObject.GetComponent<Rigidbody>().useGravity = true;
 
             moveSpeed = 4.0f;
+        }
+
+        if (collision.gameObject.layer == 9)
+        {
+            if (collision.gameObject.tag != "Down")
+
+                moveSpeed = 4f;
         }
     }
 
