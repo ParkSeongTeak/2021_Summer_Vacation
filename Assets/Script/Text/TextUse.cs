@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class TextUse : MonoBehaviour
 {
+    //public static TextUse Instance;
     // Start is called before the first frame update
     public Text pfClone;
     public GameObject TextBoard;
@@ -22,6 +23,14 @@ public class TextUse : MonoBehaviour
     int cnt = 0;
     int Key;
     int line = 0;
+
+    public void SetcanTalkTrue()
+    {
+        canTalk = true;
+        GameButton[0].SetActive(true);
+        GameButton[1].SetActive(true);
+
+    }
     public void SetYes()
     {
         SetBranch("예");
@@ -48,18 +57,12 @@ public class TextUse : MonoBehaviour
 
         }
 
-        /*for (int i = 0; i < data.Length; i++)
-        {
-            pfClone.text = data[i].Value;
-            Key = data[i].Key;
-            PrintText();     //Key 1: SomeOne 2: Me
-        }
-        */
 
     }
 
     private void Start()
     {
+        //Instance = this;
         cnt = 0;
         if (branch == "0")
         {
@@ -80,8 +83,8 @@ public class TextUse : MonoBehaviour
             if (cnt == Data.Length)
             {
                 canTalk = true;
-                GameButton[0].SetActive(true);
-                GameButton[1].SetActive(true);
+                //GameButton[0].SetActive(true);
+                //GameButton[1].SetActive(true);
                 cnt = 0;
                 return;
             }
@@ -111,7 +114,6 @@ public class TextUse : MonoBehaviour
 
     //IEnumerable PrintText()
     void PrintText()
-
     {
         /*
         GameObject goTemp = Instantiate(pfClone.gameObject, Vector3.zero, Quaternion.identity) as GameObject;

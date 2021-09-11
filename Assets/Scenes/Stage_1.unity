@@ -6187,6 +6187,7 @@ GameObject:
   - component: {fileID: 435965601}
   - component: {fileID: 435965600}
   - component: {fileID: 435965599}
+  - component: {fileID: 435965603}
   m_Layer: 9
   m_Name: CloseDoor
   m_TagString: Untagged
@@ -6307,6 +6308,18 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &435965603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 435965597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1a0c6569eddc8740af47ef8d7107965, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &443781724
 GameObject:
   m_ObjectHideFlags: 0
@@ -8003,6 +8016,7 @@ GameObject:
   - component: {fileID: 582276817}
   - component: {fileID: 582276816}
   - component: {fileID: 582276815}
+  - component: {fileID: 582276819}
   m_Layer: 9
   m_Name: CloseDoor (2)
   m_TagString: Untagged
@@ -8123,6 +8137,18 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &582276819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 582276813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1a0c6569eddc8740af47ef8d7107965, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &582686400
 GameObject:
   m_ObjectHideFlags: 0
@@ -10059,6 +10085,7 @@ GameObject:
   - component: {fileID: 712563075}
   - component: {fileID: 712563074}
   - component: {fileID: 712563073}
+  - component: {fileID: 712563077}
   m_Layer: 9
   m_Name: CloseDoor
   m_TagString: Untagged
@@ -10179,6 +10206,18 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &712563077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 712563071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1a0c6569eddc8740af47ef8d7107965, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &714115942
 GameObject:
   m_ObjectHideFlags: 0
@@ -15270,6 +15309,7 @@ GameObject:
   - component: {fileID: 1105369132}
   - component: {fileID: 1105369131}
   - component: {fileID: 1105369130}
+  - component: {fileID: 1105369134}
   m_Layer: 9
   m_Name: CloseDoor
   m_TagString: Untagged
@@ -15390,6 +15430,18 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1105369134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1105369128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1a0c6569eddc8740af47ef8d7107965, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1112571486
 GameObject:
   m_ObjectHideFlags: 0
@@ -18103,6 +18155,7 @@ GameObject:
   - component: {fileID: 1304126276}
   - component: {fileID: 1304126275}
   - component: {fileID: 1304126274}
+  - component: {fileID: 1304126278}
   m_Layer: 9
   m_Name: CloseDoor
   m_TagString: Untagged
@@ -18223,6 +18276,18 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1304126278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1304126272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1a0c6569eddc8740af47ef8d7107965, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1304575757
 GameObject:
   m_ObjectHideFlags: 0
@@ -25934,6 +25999,7 @@ GameObject:
   - component: {fileID: 1845038844}
   - component: {fileID: 1845038843}
   - component: {fileID: 1845038842}
+  - component: {fileID: 1845038846}
   m_Layer: 9
   m_Name: CloseDoor
   m_TagString: Untagged
@@ -26054,6 +26120,18 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1845038846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1845038840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1a0c6569eddc8740af47ef8d7107965, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1845540505
 GameObject:
   m_ObjectHideFlags: 0
@@ -28370,6 +28448,7 @@ GameObject:
   - component: {fileID: 1953392922}
   - component: {fileID: 1953392921}
   - component: {fileID: 1953392920}
+  - component: {fileID: 1953392924}
   m_Layer: 9
   m_Name: CloseDoor
   m_TagString: Untagged
@@ -28490,6 +28569,18 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1953392924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1953392918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1a0c6569eddc8740af47ef8d7107965, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1955095764
 GameObject:
   m_ObjectHideFlags: 0
