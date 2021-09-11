@@ -956,7 +956,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 62257576}
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
-  m_LocalPosition: {x: 0, y: -0.77, z: 0}
+  m_LocalPosition: {x: 0, y: -0.714, z: 0}
   m_LocalScale: {x: 1, y: 0.6666667, z: 1}
   m_Children: []
   m_Father: {fileID: 1346797054}
@@ -11450,7 +11450,6 @@ GameObject:
   m_Component:
   - component: {fileID: 804785154}
   - component: {fileID: 804785159}
-  - component: {fileID: 804785155}
   m_Layer: 8
   m_Name: SearchRay
   m_TagString: MainCamera
@@ -11472,19 +11471,6 @@ Transform:
   m_Father: {fileID: 963194228}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &804785155
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 804785153}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.15
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &804785159
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13622,7 +13608,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.56, z: 0}
+  m_LocalPosition: {x: 0, y: 0.389, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 804785154}
@@ -13641,7 +13627,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2941184541df8cb469667d65b6bff9fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turnSpeed: 4
+  turnSpeed: 20
   SearchRay: {fileID: 804785153}
   Body: {fileID: 1346797054}
   TileReset:
@@ -13682,8 +13668,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.2
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.17
+  m_Center: {x: 0, y: -0.2, z: 0}
 --- !u!54 &963194233
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -13775,7 +13761,7 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
@@ -19043,8 +19029,8 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 1.7
-  m_Radius: 0.5
+  m_Height: 1
+  m_Radius: 0.2
   m_SlopeLimit: 45
   m_StepOffset: 0.7
   m_SkinWidth: 0.08
