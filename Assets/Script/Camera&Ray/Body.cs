@@ -258,6 +258,10 @@ public class Body : MonoBehaviour
         
         controller.Move(velocity * Time.deltaTime);
     }
-
+    public void BodyResetVec()
+    {
+        transform.position = StartLocation[0, GameManager.Instance.RoomNum - 1];
+        transform.rotation = Quaternion.Euler(StartLocation[1, GameManager.Instance.RoomNum - 1]);
+    }
 
 }

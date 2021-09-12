@@ -48,5 +48,10 @@ public class UI_Script : MonoBehaviour
                 Resume();
             }
         }
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            FPP_Cam.Instance.TileRe();
+
+        }
     }
 }

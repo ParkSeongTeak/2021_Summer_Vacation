@@ -10,6 +10,7 @@ public class TextUse : MonoBehaviour
     public Text pfClone;
     public GameObject TextBoard;
     public GameObject[] GameButton = new GameObject[2];
+    public GameObject Close;
     Vector3 SomeOne = new Vector3(-220, 0, 0);
     //Vector3 Me = new Vector3(400, 0, 0);
     Vector3 UP = new Vector3(0, 70, 0);
@@ -23,14 +24,36 @@ public class TextUse : MonoBehaviour
     int cnt = 0;
     int Key;
     int line = 0;
-
-    public void SetcanTalkTrue()
+    int ButtonType;
+    public void SetcanTalkTrue(int num)//num 0: 버튼없음; num 1 : 네; 2: 아니오 3 네&아니오; 
     {
         canTalk = true;
-        GameButton[0].SetActive(true);
-        GameButton[1].SetActive(true);
-
+        ButtonType = num;
+        ButtonNum();
     }
+    void ButtonNum()
+    {
+        if ( ButtonType == 0)
+        {
+            SetYes();
+        }
+        else if (ButtonType == 1)
+        {
+            GameButton[0].SetActive(true);
+        }
+        else if (ButtonType == 2)
+        {
+            GameButton[1].SetActive(true);
+        }
+        else
+        {
+            GameButton[0].SetActive(true);
+            GameButton[1].SetActive(true);
+        }
+    }
+
+
+
     public void SetYes()
     {
         SetBranch("예");
@@ -52,7 +75,9 @@ public class TextUse : MonoBehaviour
             TextSave.Instance.talkData.TryGetValue(branch, out KeyValuePair<int, string>[] data);
             Data = data;
             canTalk = false;
-            GameButton[0].SetActive(false);
+
+            GameButton[0].SetActive(false);            
+            
             GameButton[1].SetActive(false);
 
         }
@@ -70,7 +95,7 @@ public class TextUse : MonoBehaviour
             Data = data;
             canTalk = false;
             GameButton[0].SetActive(false);
-            GameButton[1].SetActive(false);
+            //GameButton[1].SetActive(false);
 
         }
     }
@@ -85,6 +110,8 @@ public class TextUse : MonoBehaviour
                 canTalk = true;
                 //GameButton[0].SetActive(true);
                 //GameButton[1].SetActive(true);
+                Close.SetActive(true);
+
                 cnt = 0;
                 return;
             }

@@ -2233,21 +2233,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 208760285}
-        m_TargetAssemblyTypeName: Active, Assembly-CSharp
-        m_MethodName: ActiveFalse
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 963194231}
-        m_TargetAssemblyTypeName: CursorLockHide, Assembly-CSharp
-        m_MethodName: CursorFalse
+      - m_Target: {fileID: 349342209}
+        m_TargetAssemblyTypeName: UI_Script, Assembly-CSharp
+        m_MethodName: ToMainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4352,6 +4340,7 @@ MonoBehaviour:
   GameButton:
   - {fileID: 572458388}
   - {fileID: 897318485}
+  Close: {fileID: 1537351837}
 --- !u!114 &326051273
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6381,6 +6370,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1a0c6569eddc8740af47ef8d7107965, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ansType: 3
 --- !u!1 &442126626
 GameObject:
   m_ObjectHideFlags: 0
@@ -8260,6 +8250,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1a0c6569eddc8740af47ef8d7107965, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ansType: 0
 --- !u!1 &582686400
 GameObject:
   m_ObjectHideFlags: 0
@@ -10329,6 +10320,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1a0c6569eddc8740af47ef8d7107965, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ansType: 0
 --- !u!1 &714115942
 GameObject:
   m_ObjectHideFlags: 0
@@ -13627,7 +13619,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2941184541df8cb469667d65b6bff9fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turnSpeed: 20
+  turnSpeed: 200
   SearchRay: {fileID: 804785153}
   Body: {fileID: 1346797054}
   TileReset:
@@ -13669,7 +13661,7 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.17
-  m_Center: {x: 0, y: -0.2, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &963194233
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -14608,7 +14600,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1023015070
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15523,6 +15515,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1a0c6569eddc8740af47ef8d7107965, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ansType: 0
 --- !u!1 &1112571486
 GameObject:
   m_ObjectHideFlags: 0
@@ -18444,6 +18437,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1a0c6569eddc8740af47ef8d7107965, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ansType: 0
 --- !u!1 &1304575757
 GameObject:
   m_ObjectHideFlags: 0
@@ -23901,7 +23895,7 @@ GameObject:
   - component: {fileID: 1676774950}
   - component: {fileID: 1676774949}
   m_Layer: 5
-  m_Name: Main
+  m_Name: MAIN
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23969,19 +23963,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1676774950}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 349342209}
-        m_TargetAssemblyTypeName: UI_Script, Assembly-CSharp
-        m_MethodName: ToMainMenu
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1676774950
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26280,6 +26262,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1a0c6569eddc8740af47ef8d7107965, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ansType: 0
 --- !u!1 &1845540505
 GameObject:
   m_ObjectHideFlags: 0
@@ -28729,6 +28712,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1a0c6569eddc8740af47ef8d7107965, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ansType: 0
 --- !u!1 &1955095764
 GameObject:
   m_ObjectHideFlags: 0
@@ -55519,6 +55503,8 @@ MonoBehaviour:
   ForcedNeighbor:
   - {fileID: 7284282946115215459}
   - {fileID: 3034595637301061998}
+  - {fileID: 8115647694060115200}
+  - {fileID: 6552160099098267952}
   BanNeighbor: []
   VeryFirst: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &8005710563469937096
