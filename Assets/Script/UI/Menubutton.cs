@@ -27,6 +27,7 @@ public class Menubutton : MonoBehaviour
             SlideImgPos[i] = SlideImg[i].transform.position;
         }
     }
+    
     void FixedUpdate()
     {
         if (Target != null)
