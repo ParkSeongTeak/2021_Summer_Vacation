@@ -195,16 +195,16 @@ public class Body : MonoBehaviour
     public Transform groundCheck;
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
-
+    
     Vector3 velocity;
     bool isGrounded;
     float jumpHeight = 4f;
-    Vector3[,] StartLocation = new Vector3[7, 2]; //  [ RoomNum - 1 location, RoomNum - 1 rotation] 
-
+    public Vector3[,] StartLocation = new Vector3[7, 2]; //  [ RoomNum - 1 location, RoomNum - 1 rotation] 
+    bool RE = false;
 
     private void Start()
     {
-        StartLocation[0, 0] = new Vector3(20, 21, 20);
+        StartLocation[0, 0] = new Vector3(20 , 21, 20);
         StartLocation[0, 1] = new Vector3(0, 180, 0);
 
         StartLocation[1, 0] = new Vector3(20, 21, 10);
@@ -225,7 +225,7 @@ public class Body : MonoBehaviour
         StartLocation[6, 0] = new Vector3(-26, 21, 5);
         StartLocation[6, 1] = new Vector3(0, 0, 0);
 
-
+        
         transform.position = StartLocation[GameManager.Instance.RoomNum - 1, 0];
         transform.eulerAngles = StartLocation[GameManager.Instance.RoomNum - 1, 1];
 
@@ -257,11 +257,14 @@ public class Body : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
         
         controller.Move(velocity * Time.deltaTime);
+       
     }
     public void BodyResetVec()
     {
-        transform.position = StartLocation[0, GameManager.Instance.RoomNum - 1];
-        transform.rotation = Quaternion.Euler(StartLocation[1, GameManager.Instance.RoomNum - 1]);
+        Debug.Log(StartLocation[GameManager.Instance.RoomNum - 1, 0]);
+        
+        this.gameObject.transform.localEulerAngles = StartLocation[ GameManager.Instance.RoomNum - 1 ,1];
+
     }
 
 }

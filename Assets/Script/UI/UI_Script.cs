@@ -8,6 +8,7 @@ public class UI_Script : MonoBehaviour
 {
     public GameObject PausePopUp;
     public bool isPause = false;
+    GameObject Body;
 
     public void Pause()
     {
@@ -32,7 +33,10 @@ public class UI_Script : MonoBehaviour
 
         SceneManager.LoadScene("MainMenu");
     }
-
+    private void Start()
+    {
+        Body = GameObject.Find("Body");
+    }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -51,7 +55,8 @@ public class UI_Script : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R))
         {
             FPP_Cam.Instance.TileRe();
-
+            
+            
         }
     }
 }

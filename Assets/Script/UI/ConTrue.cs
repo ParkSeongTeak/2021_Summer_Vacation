@@ -8,7 +8,7 @@ public class ConTrue : MonoBehaviour
     GameObject UI;
     GameObject Text;
     GameObject Close;
-
+    bool Onetime = false;
     public int ansType = 0;
 
     private void Start()
@@ -19,9 +19,12 @@ public class ConTrue : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-
-        UI.SetActive(true);
-        Close.SetActive(false);
-        Text.GetComponent<TextUse>().SetcanTalkTrue(this.ansType);
+        if (!this.Onetime)
+        {
+            UI.SetActive(true);
+            Close.SetActive(false);
+            Text.GetComponent<TextUse>().SetcanTalkTrue(this.ansType);
+            this.Onetime = true;
+        }        
     }
 }

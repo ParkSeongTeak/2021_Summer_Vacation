@@ -7,8 +7,8 @@ public class FPP_Cam : MonoBehaviour
     public static FPP_Cam Instance;
     public float turnSpeed = 4.0f; // 마우스 회전 속도    
     private float xRotate = 0.0f;
-    public GameObject SearchRay;
-    public Transform Body;
+    //public GameObject SearchRay;
+    public GameObject Body;
     GameObject Controller;
 
     public GameObject[] TileReset = new GameObject[0];//
@@ -42,7 +42,7 @@ public class FPP_Cam : MonoBehaviour
     void Start()
     {
         Controller = GameObject.Find("controller");
-        SearchRay = GameObject.Find("SearchRay");
+        //SearchRay = GameObject.Find("SearchRay");
         Instance = this;
     }
 
@@ -52,7 +52,8 @@ public class FPP_Cam : MonoBehaviour
         GameManager.Instance.nowPoint = 0;
         Controller.GetComponent<ControlColor>().Point.text = GameManager.Instance.nowPoint+"";
         TileReset[GameManager.Instance.RoomNum-1].GetComponent<OpenDoor>().TileReset();
-        Body.gameObject.GetComponent<Body>().BodyResetVec();
+        this.gameObject.transform.localPosition = new Vector3(0, 0.389f, 0);
+        Body.GetComponent<Body>().BodyResetVec();
 
     }
 
@@ -80,7 +81,7 @@ public class FPP_Cam : MonoBehaviour
             xRotate = Mathf.Clamp(xRotate, -70, 80);
 
             transform.localRotation = Quaternion.Euler(xRotate, 0f, 0f);
-            Body.Rotate(Vector3.up * XRotateSize);
+            Body.transform.Rotate(Vector3.up * XRotateSize);
 
             // 현재 y축 회전값에 더한 새로운 회전각도 계산
             //Instance.yRotate = transform.eulerAngles.y + yRotateSize;
@@ -92,7 +93,7 @@ public class FPP_Cam : MonoBehaviour
             //transform.eulerAngles = new Vector3(xRotate, 0, 0);
 
 
-            SearchRay.transform.position = this.transform.position;
+            //SearchRay.transform.position = this.transform.position;
             
 
         }

@@ -95,9 +95,10 @@ public class TextUse : MonoBehaviour
             Data = data;
             canTalk = false;
             GameButton[0].SetActive(false);
-            //GameButton[1].SetActive(false);
+            GameButton[1].SetActive(false);
 
         }
+        Close.SetActive(false);
     }
 
     private void Update()
