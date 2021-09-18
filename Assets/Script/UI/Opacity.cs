@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class Opacity : MonoBehaviour
 {
-    public float activetime = 0.3f;
+    public float activetime = 0.8f;
     float timer = 0.0f;
     bool first = true;
     float firstTime;

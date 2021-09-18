@@ -1,13 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class Menubutton : MonoBehaviour
 {
-    const int SlideImgNum = 1;
+    const int SlideImgNum = 4;
     public GameObject[] SlideImg = new GameObject[SlideImgNum];
     Vector3[] SlideImgPos = new Vector3[SlideImgNum];
+
+    public GameObject[] Popup = new GameObject[3]; //
+    public Image SlideBG;
 
 
     public GameObject[] StartImg = new GameObject[2];
@@ -37,12 +41,10 @@ public class Menubutton : MonoBehaviour
             //Vector3 targetPosition = Target.transform.TransformPoint(new Vector3(0, 5, -10));
 
             // Smoothly move the camera towards that target position
+            // Slide 이미지 이동시키는 코드
             Target.transform.position = Vector3.SmoothDamp(Target.transform.position, targetPosition, ref velocity, smoothTime);
             //Target.transform.position += Plus;
         }
-
-
-
     }
 
     public void StartButton()
@@ -51,14 +53,47 @@ public class Menubutton : MonoBehaviour
         idx = 0;
         Target = SlideImg[idx];
         StartImg[0].SetActive(true);
-        StartImg[1].SetActive(true);
-        Invoke("LoadGame", 2.5f);
-
+        //StartImg[1].SetActive(true);
+        Invoke("LoadGame", 7f);
     }
 
     void LoadGame()
     {
-        SceneManager.LoadScene("Stage_1");
+        Loading.LoadScene("Stage_1");
+    }
+    
+    public void OptionButton()
+    {
+        idx = 1;
+        Target = SlideImg[idx];
+        Invoke("FadePopup", 2f);
     }
 
+    public void CreditButton()
+    {
+        idx = 2;
+        Target = SlideImg[idx];
+        Invoke("FadePopup", 2f);
+    }
+
+    public void ExitButton()
+    {
+        idx = 3;
+        Target = SlideImg[idx];
+        Invoke("FadePopup", 2f);
+    }
+
+    void FadePopup()
+    {
+        //이거 SetActive 말고 페이드인 하도록 변경
+        Popup[idx-1].SetActive(true);
+    }
+
+    public void BackBtn()
+    {
+        SlideImg[idx].transform.position = SlideImgPos[idx];
+        SlideImg[idx].gameObject.SetActive(false);
+        SlideBG.color = new Color(SlideBG.color.r, SlideBG.color.g, SlideBG.color.b, 0);
+        SlideBG.gameObject.SetActive(false);
+    }
 }
