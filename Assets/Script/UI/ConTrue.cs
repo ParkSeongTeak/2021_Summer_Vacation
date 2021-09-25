@@ -4,18 +4,23 @@ using UnityEngine;
 
 public class ConTrue : MonoBehaviour
 {
-
+    [SerializeField]
     GameObject UI;
+    [SerializeField]
     GameObject Text;
+    [SerializeField]
     GameObject Close;
     bool Onetime = false;
     public int ansType = 0;
 
     private void Start()
-    {
+    {   /*
         UI = GameObject.Find("Canvas").transform.Find("BGImg").gameObject;//.transform.Find("Talk").gameObject;
         Text = UI.transform.Find("").transform.Find("Talk").gameObject;
-        Close = GameObject.Find("Canvas").transform.Find("BGImg").gameObject.transform.Find("Close").gameObject;
+        Close = GameObject.Find("Canvas").transform.Find("BGImg").gameObject.transform.Find("Close").gameObject;*/ //JH
+        UI = GameObject.Find("Canvas").transform.Find("ConsoleCanvas").gameObject;//.transform.Find("Talk").gameObject;
+        Text = UI.GetComponent<ConsoleManager>().talkObj;
+        Close = UI.GetComponent<ConsoleManager>().colseButtonObj;
     }
     private void OnTriggerEnter(Collider other)
     {

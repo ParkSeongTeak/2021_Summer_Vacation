@@ -36,7 +36,7 @@ public class MouseDragJH : MonoBehaviour //JH
             }
             if(mainCam.WorldToScreenPoint(initialRayHit.point).z>0f)
                 initialPoint = (Vector2)mainCam.WorldToScreenPoint(initialRayHit.point);
-            Debug.Log(mainCam.WorldToScreenPoint(initialRayHit.point));
+            //Debug.Log(mainCam.WorldToScreenPoint(initialRayHit.point));
             BrushLineObject.GetComponent<RectTransform>().position = initialPoint;
             BrushLineObject.GetComponent<RectTransform>().sizeDelta = new Vector2(Vector2.Distance((Vector2)initialPoint, (Vector2)lastPoint)*2f+30f, 89f);
             pointDirection = Quaternion.Euler(0, 0, 90f) *((Vector2)lastPoint - (Vector2)initialPoint);

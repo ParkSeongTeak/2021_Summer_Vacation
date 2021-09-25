@@ -152,16 +152,17 @@ public class TextUse : MonoBehaviour
         //yield return new WaitForSeconds(0.4f);
         GameObject goTemp = Instantiate(Tmp, Vector3.zero, Quaternion.identity) as GameObject; ;
 
-        goTemp.transform.parent = TextBoard.transform;
+        //goTemp.transform.parent = TextBoard.transform; //JH
+        goTemp.transform.SetParent(TextBoard.transform);
         goTemp.transform.localPosition = SomeOne;
 
         SomeOne += Down;
         for (int i = 0; i < line; i++)
         {
             SomeOne -= LineUP;
-            TextBoard.transform.position += LineUP;
+            //TextBoard.transform.position += LineUP; //JH
         }
-        TextBoard.transform.position += UP;
+        //TextBoard.transform.position += UP; //JH
 
     }
 

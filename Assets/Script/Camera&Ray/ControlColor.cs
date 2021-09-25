@@ -19,6 +19,9 @@ public class ControlColor : MonoBehaviour
     bool Obj = false;
     bool AdditionalMixing = false;
 
+    public Text objectiveText; //JH
+    public ConsoleManager ConsoleManagerScript; //JH
+
 
     int _layerMask;
     Vector3 MousePos;
@@ -147,6 +150,8 @@ public class ControlColor : MonoBehaviour
                                             if (FPP_Cam.Instance.TileReset[GameManager.Instance.RoomNum-1].GetComponent<OpenDoor>().qualification())
                                             {
                                                 ClearBG.SetActive(true);
+                                                StageClear(); //JH
+                                                objectiveText.text = ""; //JH
                                                 FPP_Cam.Instance.TileReset[GameManager.Instance.RoomNum - 1].GetComponent<OpenDoor>().SetDoorUseTrue();
                                             }
                                         }
@@ -210,4 +215,32 @@ public class ControlColor : MonoBehaviour
         //color.GetComponent<Renderer>().material.color = color;
     }
 
+
+    //---JH---//
+    public void StageClear(){
+        StartCoroutine(ImageFadeEffect(ConsoleManagerScript.GameClearIamge, 0.3f, 0.8f, 0.3f));
+    }
+    public void StageFailed(){
+        StartCoroutine(ImageFadeEffect(ConsoleManagerScript.GameClearIamge, 0.3f, 0.8f, 0.3f));
+    }
+
+    IEnumerator ImageFadeEffect(GameObject obj, float t1, float t2, float t3){
+        obj.SetActive(true);
+        Image fadeImage = obj.GetComponent<Image>();
+        float miniTimer = 0f;
+        while(miniTimer<t1){
+            fadeImage.color = new Vector4(fadeImage.color.r, fadeImage.color.g, fadeImage.color.b, miniTimer / t1);
+            yield return null;
+            miniTimer += Time.deltaTime;
+        }
+        yield return new WaitForSeconds(t2);
+        miniTimer = 0f;
+        while(miniTimer<t3){
+            fadeImage.color = new Vector4(fadeImage.color.r, fadeImage.color.g, fadeImage.color.b, 1f-miniTimer / t3);
+            yield return null;
+            miniTimer += Time.deltaTime;
+        }
+        obj.SetActive(false);
+    }
+    //---JH---//
 }

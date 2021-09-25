@@ -39,7 +39,7 @@ public class UI_Script : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape)||Input.GetKeyDown(KeyCode.E))
         {
             if (!isPause)
             {

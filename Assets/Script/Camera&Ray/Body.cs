@@ -198,7 +198,7 @@ public class Body : MonoBehaviour
     
     Vector3 velocity;
     bool isGrounded;
-    float jumpHeight = 4f;
+    float jumpHeight = .7f; // JH: 4f->.7f
     public Vector3[,] StartLocation = new Vector3[7, 2]; //  [ RoomNum - 1 location, RoomNum - 1 rotation] 
     bool RE = false;
 
