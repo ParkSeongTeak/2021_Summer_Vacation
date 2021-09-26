@@ -18,6 +18,7 @@ public class ConsoleManager : MonoBehaviour // JH 20210925
 
     public GameObject GameClearIamge;
     public GameObject GameFailImage;
+    public CursorLockHide CursorScript;
 
 
     public void OpenTab1(){
@@ -41,8 +42,8 @@ public class ConsoleManager : MonoBehaviour // JH 20210925
     public void Option_Reset(){
 
         GMObj=GameObject.Find("GameManager");
-        GMObj.GetComponent<GameManager>().reset();
-        SceneManager.LoadScene("Stage_1");
+        GameManager.Instance.reset();
+        SceneManager.LoadScene("MainMenu");
 
     }
 

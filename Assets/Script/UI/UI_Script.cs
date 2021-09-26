@@ -9,6 +9,7 @@ public class UI_Script : MonoBehaviour
     public GameObject PausePopUp;
     public bool isPause = false;
     GameObject Body;
+    public CursorLockHide CursorLockHideScript; //JH
 
     public void Pause()
     {
@@ -44,11 +45,13 @@ public class UI_Script : MonoBehaviour
             if (!isPause)
             {
                 isPause = true;
+                CursorLockHideScript.CursorTrue(); //JH
                 Pause();
             }
             else
             {
                 isPause = false;
+                CursorLockHideScript.CursorFalse(); //JH
                 Resume();
             }
         }

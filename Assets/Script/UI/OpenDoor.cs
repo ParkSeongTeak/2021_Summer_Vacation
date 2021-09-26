@@ -35,7 +35,6 @@ public class OpenDoor : MonoBehaviour
     float smoothTime = 0.015f;
     private Vector3 velocity1 = Vector3.zero;
     private Vector3 velocity2 = Vector3.zero;
-    [SerializeField] //JH
     bool DoorUse = false;
 
     string[] RoomGoalTextStr = new string[7];

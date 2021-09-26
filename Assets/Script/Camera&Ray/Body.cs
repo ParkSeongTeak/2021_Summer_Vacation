@@ -263,7 +263,7 @@ public class Body : MonoBehaviour
     {
         Debug.Log(StartLocation[GameManager.Instance.RoomNum - 1, 0]);
         
-        this.gameObject.transform.localEulerAngles = StartLocation[ GameManager.Instance.RoomNum - 1 ,1];
+        //this.gameObject.transform.localEulerAngles = StartLocation[ GameManager.Instance.RoomNum - 1 ,1]; //JH
 
     }
 

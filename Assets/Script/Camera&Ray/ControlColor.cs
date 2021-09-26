@@ -21,6 +21,7 @@ public class ControlColor : MonoBehaviour
 
     public Text objectiveText; //JH
     public ConsoleManager ConsoleManagerScript; //JH
+    public Text currentPointText; //JH
 
 
     int _layerMask;
@@ -154,6 +155,9 @@ public class ControlColor : MonoBehaviour
                                                 objectiveText.text = ""; //JH
                                                 FPP_Cam.Instance.TileReset[GameManager.Instance.RoomNum - 1].GetComponent<OpenDoor>().SetDoorUseTrue();
                                             }
+                                            else{
+                                                StageFailed();
+                                            }
                                         }
 
                                     }
@@ -195,8 +199,12 @@ public class ControlColor : MonoBehaviour
 
         }
     
-    
-    
+        if(GameManager.Instance.nowPoint>GameManager.Instance.availablePoint) //JH
+            currentPointText.color = new Vector4(1f, 0.2f, 0.2f, 1f);
+            else
+            currentPointText.color = new Vector4(1f, 1f, 1f, 1f);
+
+
     }
 
     IEnumerator ScreenShotAndSpoid()
@@ -221,7 +229,7 @@ public class ControlColor : MonoBehaviour
         StartCoroutine(ImageFadeEffect(ConsoleManagerScript.GameClearIamge, 0.3f, 0.8f, 0.3f));
     }
     public void StageFailed(){
-        StartCoroutine(ImageFadeEffect(ConsoleManagerScript.GameClearIamge, 0.3f, 0.8f, 0.3f));
+        StartCoroutine(ImageFadeEffect(ConsoleManagerScript.GameFailImage, 0.3f, 0.8f, 0.3f));
     }
 
     IEnumerator ImageFadeEffect(GameObject obj, float t1, float t2, float t3){
@@ -233,6 +241,7 @@ public class ControlColor : MonoBehaviour
             yield return null;
             miniTimer += Time.deltaTime;
         }
+        fadeImage.color = new Vector4(fadeImage.color.r, fadeImage.color.g, fadeImage.color.b, 1f);
         yield return new WaitForSeconds(t2);
         miniTimer = 0f;
         while(miniTimer<t3){

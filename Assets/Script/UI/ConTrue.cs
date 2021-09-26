@@ -29,7 +29,9 @@ public class ConTrue : MonoBehaviour
             UI.SetActive(true);
             Close.SetActive(false);
             Text.GetComponent<TextUse>().SetcanTalkTrue(this.ansType);
+            UI.GetComponent<ConsoleManager>().CursorScript.CursorTrue();
             this.Onetime = true;
+            
         }        
     }
 }
