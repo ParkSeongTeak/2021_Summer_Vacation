@@ -14,10 +14,7 @@ public class ConTrue : MonoBehaviour
     public int ansType = 0;
 
     private void Start()
-    {   /*
-        UI = GameObject.Find("Canvas").transform.Find("BGImg").gameObject;//.transform.Find("Talk").gameObject;
-        Text = UI.transform.Find("").transform.Find("Talk").gameObject;
-        Close = GameObject.Find("Canvas").transform.Find("BGImg").gameObject.transform.Find("Close").gameObject;*/ //JH
+    {   
         UI = GameObject.Find("Canvas").transform.Find("ConsoleCanvas").gameObject;//.transform.Find("Talk").gameObject;
         Text = UI.GetComponent<ConsoleManager>().talkObj;
         Close = UI.GetComponent<ConsoleManager>().colseButtonObj;
