@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-03-29T15:46:35.101Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36" etag="67U1sN0xRTTFWauBEoeJ" version="21.1.2" type="github" pages="5">
+<mxfile host="app.diagrams.net" modified="2023-03-29T15:50:30.899Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36" etag="7oLHzOZhjgPvFrZD7hsh" version="21.1.2" type="github" pages="5">
   <diagram name="페이지-1" id="QFwXqVVtOuhSBCvKckYJ">
     <mxGraphModel dx="901" dy="937" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -668,18 +668,36 @@
     </mxGraphModel>
   </diagram>
   <diagram id="bAr6KOa1cwhMA9fdBlkI" name="페이지-5">
-    <mxGraphModel dx="1247" dy="1124" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="358" dy="642" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="zR1cgUNsSRMBLxBGMjGi-1" value="Player" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
-          <mxGeometry x="1110" y="260" width="30" height="60" as="geometry" />
+        <mxCell id="zR1cgUNsSRMBLxBGMjGi-1" value="교수" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="1110" y="200" width="30" height="60" as="geometry" />
         </mxCell>
         <mxCell id="zR1cgUNsSRMBLxBGMjGi-2" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="1230" y="100" width="600" height="530" as="geometry" />
+          <mxGeometry x="1241" y="100" width="600" height="530" as="geometry" />
         </mxCell>
-        <mxCell id="zR1cgUNsSRMBLxBGMjGi-11" value="" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="1300" y="220" width="120" height="80" as="geometry" />
+        <mxCell id="zR1cgUNsSRMBLxBGMjGi-11" value="학교 일정 열람" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1310" y="325" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="zR1cgUNsSRMBLxBGMjGi-12" value="과제 수행" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1310" y="460" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="zR1cgUNsSRMBLxBGMjGi-13" value="과제 출제" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1320" y="120" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="zR1cgUNsSRMBLxBGMjGi-14" value="학생" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="1110" y="440" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="zR1cgUNsSRMBLxBGMjGi-15" value="과제 파일 업로드" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1450" y="530" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="zR1cgUNsSRMBLxBGMjGi-16" value="과제 파일 업로드" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1481" y="150" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="zR1cgUNsSRMBLxBGMjGi-17" value="과제 출제" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1320" y="210" width="120" height="80" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
