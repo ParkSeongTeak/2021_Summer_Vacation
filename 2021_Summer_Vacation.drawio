@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-03-29T15:43:59.983Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36" etag="OZqJEKMbpJJoB8QocaEu" version="21.1.2" type="github" pages="4">
+<mxfile host="app.diagrams.net" modified="2023-03-29T15:44:07.821Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36" etag="nIoCewRAFmYsvmjiV0Lf" version="21.1.2" type="github" pages="4">
   <diagram name="페이지-1" id="QFwXqVVtOuhSBCvKckYJ">
     <mxGraphModel dx="1728" dy="2106" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -24,33 +24,6 @@
         </mxCell>
         <mxCell id="gr91UfhtkXh86Y-uoXjA-5" value="화면 중앙 드래그 툴 작동" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.start_1;whiteSpace=wrap;" parent="1" vertex="1">
           <mxGeometry x="308.5" y="360" width="233" height="120" as="geometry" />
-        </mxCell>
-        <mxCell id="IVrpkHz2Tau90ipC-dnR-2" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="370" y="570" width="670" height="420" as="geometry" />
-        </mxCell>
-        <mxCell id="IVrpkHz2Tau90ipC-dnR-3" value="벽은 최초 본인 상태를 기억" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="427" y="610" width="160" height="105" as="geometry" />
-        </mxCell>
-        <mxCell id="IVrpkHz2Tau90ipC-dnR-4" value="&amp;nbsp;ReSet시 다시 본인상태로 회기" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="627" y="620" width="140" height="85" as="geometry" />
-        </mxCell>
-        <mxCell id="IVrpkHz2Tau90ipC-dnR-5" value="이어서 바꾸면 현재 상태는 변화&amp;nbsp;" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="797" y="620" width="130" height="90" as="geometry" />
-        </mxCell>
-        <mxCell id="IVrpkHz2Tau90ipC-dnR-7" value="자신과 같은 Layer과 Collision 금지" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="457" y="750" width="120" height="80" as="geometry" />
-        </mxCell>
-        <mxCell id="IVrpkHz2Tau90ipC-dnR-8" value="자신과 이웃한 Wall &lt;br&gt;기억" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="617" y="750" width="120" height="80" as="geometry" />
-        </mxCell>
-        <mxCell id="IVrpkHz2Tau90ipC-dnR-9" value="자신과 이웃한 현재 같은 색에게 Input색 전파 (BFS)" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="797" y="730" width="140" height="100" as="geometry" />
-        </mxCell>
-        <mxCell id="IVrpkHz2Tau90ipC-dnR-10" value="Player과는 Collision 필수" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="457" y="840" width="120" height="80" as="geometry" />
-        </mxCell>
-        <mxCell id="3E4oZFb2QsNUAcW_pyFL-4" value="해당 방이 Clear 확인 요구 시 확인문자" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="647" y="860" width="120" height="80" as="geometry" />
         </mxCell>
         <mxCell id="7vTayhFNNw9DyVIhhzZf-3" value="Guide UI 에서 플레이 방법 보기" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="607" y="180" width="220" height="100" as="geometry" />
