@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2023-03-29T16:15:36.796Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36" etag="7-2HHAmu3AceQDv3LPHn" version="21.1.2" type="github" pages="5">
+<mxfile host="app.diagrams.net" modified="2023-03-29T16:32:24.940Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36" etag="kuM5lPjVSP3tkkjcxGZI" version="21.1.1" type="github" pages="5">
   <diagram name="페이지-1" id="QFwXqVVtOuhSBCvKckYJ">
-    <mxGraphModel dx="901" dy="937" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="463" dy="541" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -25,10 +25,10 @@
         <mxCell id="gr91UfhtkXh86Y-uoXjA-5" value="화면 중앙 드래그 툴 작동" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.start_1;whiteSpace=wrap;" parent="1" vertex="1">
           <mxGeometry x="1248.5" y="480" width="233" height="120" as="geometry" />
         </mxCell>
-        <mxCell id="7vTayhFNNw9DyVIhhzZf-3" value="Guide UI 에서 플레이 방법 보기" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="7vTayhFNNw9DyVIhhzZf-3" value="Guide UI 에서 플레이 방법 보기" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="1547" y="300" width="220" height="100" as="geometry" />
         </mxCell>
-        <mxCell id="7vTayhFNNw9DyVIhhzZf-4" value="Option 환경설정" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="7vTayhFNNw9DyVIhhzZf-4" value="Option 환경설정" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="1517" y="450" width="271" height="100" as="geometry" />
         </mxCell>
       </root>
