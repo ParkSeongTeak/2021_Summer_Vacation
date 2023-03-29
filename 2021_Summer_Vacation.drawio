@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-03-29T15:59:29.602Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36" etag="i5fwrcA7N2WLIQ2lr436" version="21.1.2" type="github" pages="5">
+<mxfile host="app.diagrams.net" modified="2023-03-29T16:03:17.084Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36" etag="MUuE_iOkV70HymtYRdqB" version="21.1.2" type="github" pages="5">
   <diagram name="페이지-1" id="QFwXqVVtOuhSBCvKckYJ">
     <mxGraphModel dx="901" dy="937" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -668,7 +668,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="bAr6KOa1cwhMA9fdBlkI" name="페이지-5">
-    <mxGraphModel dx="18" dy="768" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="-434" dy="309" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -736,12 +736,25 @@
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="zR1cgUNsSRMBLxBGMjGi-28" value="" style="endArrow=block;endSize=16;endFill=0;html=1;rounded=0;entryX=-0.009;entryY=0.603;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.942;exitY=0.266;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="zR1cgUNsSRMBLxBGMjGi-17" target="zR1cgUNsSRMBLxBGMjGi-16">
+        <mxCell id="zR1cgUNsSRMBLxBGMjGi-28" value="" style="endArrow=block;endSize=16;endFill=0;html=1;rounded=0;exitX=0.942;exitY=0.266;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="zR1cgUNsSRMBLxBGMjGi-17" target="zR1cgUNsSRMBLxBGMjGi-16">
           <mxGeometry x="0.125" width="160" relative="1" as="geometry">
             <mxPoint x="1440" y="160" as="sourcePoint" />
             <mxPoint x="1500" y="214" as="targetPoint" />
             <mxPoint as="offset" />
           </mxGeometry>
+        </mxCell>
+        <mxCell id="zR1cgUNsSRMBLxBGMjGi-30" value="«extend»" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;exitX=0.899;exitY=0.797;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="zR1cgUNsSRMBLxBGMjGi-12" target="zR1cgUNsSRMBLxBGMjGi-15">
+          <mxGeometry x="-0.1136" y="8" width="160" relative="1" as="geometry">
+            <mxPoint x="1080" y="380" as="sourcePoint" />
+            <mxPoint x="1240" y="380" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="1440" y="540" />
+            </Array>
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zR1cgUNsSRMBLxBGMjGi-31" value="&amp;laquo;interface&amp;raquo;&lt;br&gt;&lt;b&gt;Name&lt;/b&gt;" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="1070" y="580" width="110" height="50" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
