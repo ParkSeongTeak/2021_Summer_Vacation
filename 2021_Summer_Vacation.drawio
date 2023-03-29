@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-03-29T16:52:16.396Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36" etag="ZyLt3QtxJnZCfal3itV1" version="21.1.1" type="github" pages="5">
+<mxfile host="app.diagrams.net" modified="2023-03-29T17:34:30.803Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36" etag="44cLG6DIhSxf7_d5dMkD" version="21.1.1" type="github" pages="5">
   <diagram name="페이지-1" id="QFwXqVVtOuhSBCvKckYJ">
     <mxGraphModel dx="1518" dy="984" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -668,7 +668,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="bAr6KOa1cwhMA9fdBlkI" name="페이지-5">
-    <mxGraphModel dx="-213" dy="258" grid="1" gridSize="10" guides="1" tooltips="1" connect="0" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="-133" dy="506" grid="1" gridSize="10" guides="1" tooltips="1" connect="0" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -790,35 +790,8 @@
         <mxCell id="zR1cgUNsSRMBLxBGMjGi-61" value="교수" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" parent="1" vertex="1">
           <mxGeometry x="1130" y="1090" width="30" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="zR1cgUNsSRMBLxBGMjGi-62" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="1261" y="990" width="439" height="530" as="geometry" />
-        </mxCell>
-        <mxCell id="zR1cgUNsSRMBLxBGMjGi-63" value="학교 축제 일정" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="1340" y="1190" width="120" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="zR1cgUNsSRMBLxBGMjGi-64" value="과제 수행" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="1330" y="1350" width="120" height="80" as="geometry" />
-        </mxCell>
-        <mxCell id="zR1cgUNsSRMBLxBGMjGi-65" value="과제 채점" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="1330" y="1000" width="120" height="80" as="geometry" />
-        </mxCell>
         <mxCell id="zR1cgUNsSRMBLxBGMjGi-66" value="학생" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" parent="1" vertex="1">
           <mxGeometry x="1130" y="1330" width="30" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="zR1cgUNsSRMBLxBGMjGi-67" value="과제 파일 업로드" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="1460" y="1430" width="120" height="80" as="geometry" />
-        </mxCell>
-        <mxCell id="zR1cgUNsSRMBLxBGMjGi-68" value="성적 입력" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="1510" y="1060" width="120" height="80" as="geometry" />
-        </mxCell>
-        <mxCell id="zR1cgUNsSRMBLxBGMjGi-69" value="출결 관리" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="1340" y="1100" width="120" height="80" as="geometry" />
-        </mxCell>
-        <mxCell id="zR1cgUNsSRMBLxBGMjGi-78" value="중간고사 일정 열람" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="1330" y="1260" width="120" height="80" as="geometry" />
-        </mxCell>
-        <mxCell id="zR1cgUNsSRMBLxBGMjGi-79" value="학교 일정 확인" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="1490" y="1220" width="120" height="80" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
