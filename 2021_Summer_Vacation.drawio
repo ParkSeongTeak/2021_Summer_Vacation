@@ -1,66 +1,56 @@
-<mxfile host="app.diagrams.net" modified="2023-03-26T05:39:04.070Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36" etag="NZD3ADWpnAcJ4W51wZ1j" version="21.1.1" type="github" pages="4">
+<mxfile host="app.diagrams.net" modified="2023-03-29T15:39:47.888Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36" etag="Z3XU11NfuqILmMeVPrFR" version="21.1.2" type="github" pages="4">
   <diagram name="페이지-1" id="QFwXqVVtOuhSBCvKckYJ">
-    <mxGraphModel dx="2084" dy="2331" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1185" dy="1811" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="TKa2AWvksEzY80sRVNQj-1" value="Actor" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" parent="1" vertex="1">
+        <mxCell id="TKa2AWvksEzY80sRVNQj-1" value="Player" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" parent="1" vertex="1">
           <mxGeometry x="170" y="140" width="30" height="60" as="geometry" />
         </mxCell>
         <mxCell id="TKa2AWvksEzY80sRVNQj-7" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="260" y="-30" width="1120" height="530" as="geometry" />
         </mxCell>
-        <mxCell id="TKa2AWvksEzY80sRVNQj-8" value="아래 UI터치 툴 바꾸기" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="340" y="250" width="190" height="60" as="geometry" />
+        <mxCell id="TKa2AWvksEzY80sRVNQj-8" value="UI 툴 바꾸기" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="300" y="240" width="190" height="60" as="geometry" />
         </mxCell>
         <mxCell id="TKa2AWvksEzY80sRVNQj-9" value="드래그를 통해 툴에 의한&lt;br&gt;색 반영" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="970" y="250" width="250" height="60" as="geometry" />
+          <mxGeometry x="910" y="280" width="250" height="60" as="geometry" />
         </mxCell>
         <mxCell id="TKa2AWvksEzY80sRVNQj-10" value="스토리 UI Main에서 스토리 보기&amp;nbsp;&lt;br&gt;Guide에서 플레이 방법 보기&lt;br&gt;Option에서 다시하기 등&lt;br&gt;" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="289" y="20" width="261" height="120" as="geometry" />
+          <mxGeometry x="827" y="40" width="271" height="100" as="geometry" />
         </mxCell>
-        <mxCell id="TKa2AWvksEzY80sRVNQj-11" value="툴 얻기" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="310" y="360" width="120" height="80" as="geometry" />
+        <mxCell id="TKa2AWvksEzY80sRVNQj-11" value="Map 툴 얻기" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="327" y="140" width="136" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="TKa2AWvksEzY80sRVNQj-14" value="" style="endArrow=block;endSize=16;endFill=0;html=1;rounded=0;entryX=0.289;entryY=0.95;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" parent="1" source="TKa2AWvksEzY80sRVNQj-11" target="TKa2AWvksEzY80sRVNQj-8" edge="1">
-          <mxGeometry x="-0.5086" y="40" width="160" relative="1" as="geometry">
-            <mxPoint x="443" y="360" as="sourcePoint" />
-            <mxPoint x="470" y="250" as="targetPoint" />
-            <mxPoint as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="gr91UfhtkXh86Y-uoXjA-2" value="이동을 조이스틱으로" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.start_1;whiteSpace=wrap;" parent="1" vertex="1">
-          <mxGeometry x="610" y="30" width="220" height="100" as="geometry" />
-        </mxCell>
-        <mxCell id="gr91UfhtkXh86Y-uoXjA-4" value="UI터치를 통한 툴 변화" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.start_1;whiteSpace=wrap;" parent="1" vertex="1">
-          <mxGeometry x="620" y="170" width="220" height="100" as="geometry" />
+        <mxCell id="gr91UfhtkXh86Y-uoXjA-2" value="조이스틱을 통한 이동" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.start_1;whiteSpace=wrap;" parent="1" vertex="1">
+          <mxGeometry x="300" y="10" width="220" height="100" as="geometry" />
         </mxCell>
         <mxCell id="gr91UfhtkXh86Y-uoXjA-5" value="화면의 중앙을 터치하여 드래그를 통해 변화" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.start_1;whiteSpace=wrap;" parent="1" vertex="1">
-          <mxGeometry x="620" y="290" width="233" height="120" as="geometry" />
+          <mxGeometry x="627" y="220" width="233" height="120" as="geometry" />
         </mxCell>
         <mxCell id="IVrpkHz2Tau90ipC-dnR-2" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="190" y="510" width="670" height="420" as="geometry" />
+          <mxGeometry x="370" y="570" width="670" height="420" as="geometry" />
         </mxCell>
         <mxCell id="IVrpkHz2Tau90ipC-dnR-3" value="벽은 최초 본인 상태를 기억" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="240" y="560" width="160" height="105" as="geometry" />
+          <mxGeometry x="427" y="610" width="160" height="105" as="geometry" />
         </mxCell>
         <mxCell id="IVrpkHz2Tau90ipC-dnR-4" value="&amp;nbsp;ReSet시 다시 본인상태로 회기" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="440" y="570" width="140" height="85" as="geometry" />
+          <mxGeometry x="627" y="620" width="140" height="85" as="geometry" />
         </mxCell>
         <mxCell id="IVrpkHz2Tau90ipC-dnR-5" value="이어서 바꾸면 현재 상태는 변화&amp;nbsp;" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="610" y="570" width="130" height="90" as="geometry" />
+          <mxGeometry x="797" y="620" width="130" height="90" as="geometry" />
         </mxCell>
         <mxCell id="IVrpkHz2Tau90ipC-dnR-7" value="자신과 같은 Layer과 Collision 금지" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="270" y="700" width="120" height="80" as="geometry" />
+          <mxGeometry x="457" y="750" width="120" height="80" as="geometry" />
         </mxCell>
         <mxCell id="IVrpkHz2Tau90ipC-dnR-8" value="자신과 이웃한 Wall &lt;br&gt;기억" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="430" y="700" width="120" height="80" as="geometry" />
+          <mxGeometry x="617" y="750" width="120" height="80" as="geometry" />
         </mxCell>
         <mxCell id="IVrpkHz2Tau90ipC-dnR-9" value="자신과 이웃한 현재 같은 색에게 Input색 전파 (BFS)" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="610" y="680" width="140" height="100" as="geometry" />
+          <mxGeometry x="797" y="730" width="140" height="100" as="geometry" />
         </mxCell>
         <mxCell id="IVrpkHz2Tau90ipC-dnR-10" value="Player과는 Collision 필수" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="270" y="790" width="120" height="80" as="geometry" />
+          <mxGeometry x="457" y="840" width="120" height="80" as="geometry" />
         </mxCell>
         <mxCell id="3E4oZFb2QsNUAcW_pyFL-1" value="" style="endArrow=block;endSize=16;endFill=0;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=0.944;exitY=0.25;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="gr91UfhtkXh86Y-uoXjA-5" target="TKa2AWvksEzY80sRVNQj-9" edge="1">
           <mxGeometry width="160" relative="1" as="geometry">
@@ -69,10 +59,10 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="3E4oZFb2QsNUAcW_pyFL-3" value="터치시에는 Tool을 얻기" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.start_1;whiteSpace=wrap;" parent="1" vertex="1">
-          <mxGeometry x="980" y="100" width="270" height="90" as="geometry" />
+          <mxGeometry x="587" y="70" width="270" height="90" as="geometry" />
         </mxCell>
         <mxCell id="3E4oZFb2QsNUAcW_pyFL-4" value="해당 방이 Clear 확인 요구 시 확인문자" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="460" y="810" width="120" height="80" as="geometry" />
+          <mxGeometry x="647" y="860" width="120" height="80" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
