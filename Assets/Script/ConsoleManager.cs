@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class ConsoleManager : MonoBehaviour // JH 20210925
 {
-
-    public GameObject GMObj;
+    GameObject _GMObj;
+    public GameObject GMObj { get { return _GMObj; } set { _GMObj = value; } }
 
     public GameObject tabObj1;
     public GameObject tabObj2;

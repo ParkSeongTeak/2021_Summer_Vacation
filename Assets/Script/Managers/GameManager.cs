@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Define;
 
 
 
@@ -10,14 +12,16 @@ public class GameManager : MonoBehaviour
 
     InputManager _input = new InputManager();
     SoundManager _sound = new SoundManager();
-    UIManager _ui = new UIManager();
-
+    UIManager _ui;
+    DataManager _data = new DataManager();
     public static GameManager Instance { get { Init(); return _instance; }}
     public InputManager Input  { get { return _instance._input; } }
     public SoundManager Sound  { get { return _instance._sound; } }
     public UIManager UI        { get { return _instance._ui; } }
+    public DataManager Data     { get { return _instance._data; } }
 
-    public bool saveColor;
+    bool _saveColor;
+    public bool saveColor { get { return _saveColor; } set { _saveColor = value; } }
     Color Color;
     public int StageNum = 1;
     public int RoomNum = 1;         // 현위치
@@ -25,9 +29,11 @@ public class GameManager : MonoBehaviour
     string StageNumStr = "fskljk;ljkl;jk;jkjlkjkjk";
 
     int[] RoomPoint = new int[7];   // 클리어 점수 저장
-    public int nowPoint = 0;
-    public int availablePoint = 20;
+    public int _nowPoint = 0;
+    public int _availablePoint = 20;
 
+    public int nowPoint { get { return _instance._nowPoint; } set { _instance._nowPoint = value; } }
+    public int availablePoint { get { return _instance._availablePoint; } set { _instance._availablePoint = value; } }
 
     //Tool 
     int[] _tool = new int[10];// 0: NoTool 1: Brush 2: 인지색전이
@@ -45,25 +51,22 @@ public class GameManager : MonoBehaviour
             {
                 GameManager = new GameObject{ name = "GameManager"};
                 GameManager.AddComponent<GameManager>();
+                GameManager.AddComponent<UIManager>();
             }
             DontDestroyOnLoad(GameManager);
             _instance = GameManager.GetComponent<GameManager>();
+            _instance._ui = GameManager.GetComponent<UIManager>();
             _instance._input.Init();
             _instance._sound.Init();
             _instance._ui.Init();
 
-
-            _instance.ToolSave[0] = "None";
-            _instance.ToolSave[1] = "Brush";
-            _instance.ToolSave[2] = "Paint";
-            _instance.ToolSave[3] = "Scissors";
-            _instance.ToolSave[4] = "HelloWorld";
-
-            _instance.Tool[0] = PlayerPrefs.GetInt(_instance.ToolSave[0], 1);
-            _instance.Tool[1] = PlayerPrefs.GetInt(_instance.ToolSave[1], 0);
-            _instance.Tool[2] = PlayerPrefs.GetInt(_instance.ToolSave[2], 0);
-            _instance.Tool[3] = PlayerPrefs.GetInt(_instance.ToolSave[3], 0);
-            _instance.Tool[4] = PlayerPrefs.GetInt(_instance.ToolSave[4], 0);
+            _instance.ToolSave = Enum.GetNames(typeof(Tools)); 
+            
+            _instance.Tool[(int)Tools.None] = PlayerPrefs.GetInt(_instance.ToolSave[(int)Tools.None], 1);
+            _instance.Tool[(int)Tools.Brush] = PlayerPrefs.GetInt(_instance.ToolSave[(int)Tools.Brush], 0);
+            _instance.Tool[(int)Tools.Paint] = PlayerPrefs.GetInt(_instance.ToolSave[(int)Tools.Paint], 0);
+            _instance.Tool[(int)Tools.Scissors] = PlayerPrefs.GetInt(_instance.ToolSave[(int)Tools.Scissors], 0);
+            
 
             //방 위치
             _instance.RoomNum = PlayerPrefs.GetInt(_instance.RoomNumStr, 1);
@@ -79,7 +82,6 @@ public class GameManager : MonoBehaviour
     public void Clear()
     {
         _instance._input.Clear();
-
         _instance._sound.Clear();
         _instance._ui.Clear();
     }
