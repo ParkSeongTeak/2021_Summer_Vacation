@@ -1,7 +1,7 @@
 # RGB.corp
 
 # 홍익대학교 ExP Make 2021 여름방학 프로젝트 RGB.corp
-Unity / 2D / 퍼즐 
+Unity / 3D / 퍼즐 
 
 ## 팀구성
 * 기획 : 이정훈
