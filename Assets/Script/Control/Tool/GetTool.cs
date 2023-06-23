@@ -13,7 +13,7 @@ public class GetTool : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (GameManager.Instance.Tool[num] >= 1)
+        if (GameManager.InGameData.Tool[num] >= 1)
         {
             this.gameObject.SetActive(false);
         }
@@ -23,7 +23,7 @@ public class GetTool : MonoBehaviour
     }
     public void SetTool() {
         Debug.Log("SetTool");
-        GameManager.Instance.SetTool(this.num);
+        GameManager.InGameData.SetTool(this.num);
         for(int i= this.OtherPiecenum - 1; i>=0 ; i--)
         {
             this.OtherPiece[i].SetActive(false);

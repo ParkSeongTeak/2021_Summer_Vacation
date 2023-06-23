@@ -43,8 +43,8 @@ public class Body : MonoBehaviour
         StartLocation[6, 1] = new Vector3(0, 0, 0);
 
         
-        transform.position = StartLocation[GameManager.Instance.RoomNum - 1, 0];
-        transform.eulerAngles = StartLocation[GameManager.Instance.RoomNum - 1, 1];
+        transform.position = StartLocation[GameManager.InGameData.RoomNum - 1, 0];
+        transform.eulerAngles = StartLocation[GameManager.InGameData.RoomNum - 1, 1];
 
 
     }
@@ -78,7 +78,7 @@ public class Body : MonoBehaviour
     }
     public void BodyResetVec()
     {
-        Debug.Log(StartLocation[GameManager.Instance.RoomNum - 1, 0]);
+        Debug.Log(StartLocation[GameManager.InGameData.RoomNum - 1, 0]);
         
         //this.gameObject.transform.localEulerAngles = StartLocation[ GameManager.Instance.RoomNum - 1 ,1]; //JH
 

@@ -73,7 +73,7 @@ public class ControlColor : MonoBehaviour
                 if (DownTouch.gameObject.tag == "Obj")
                 {
                     this.Obj = true;
-                    switch (GameManager.Instance.UsingTool)
+                    switch (GameManager.InGameData.UsingTool)
                     {
 
                         case 1:
@@ -93,7 +93,7 @@ public class ControlColor : MonoBehaviour
                             //CurrentTouch.GetComponent<Renderer>().material.color = GameManager.Instance.Getcolor();
                             //CurrentTouch.GetComponent<Renderer>().material.color = GameManager.Instance.Getcolor();
 
-                            GameManager.Instance.saveColor = true;
+                            GameManager.InGameData.saveColor = true;
                             Debug.Log("True");
                             break;
 
@@ -129,7 +129,7 @@ public class ControlColor : MonoBehaviour
 
                 if (this.Obj)
                 {
-                    switch (GameManager.Instance.UsingTool)
+                    switch (GameManager.InGameData.UsingTool)
                     {
                         case 1:
                             if (DownTouch != UpTouch)
@@ -144,16 +144,16 @@ public class ControlColor : MonoBehaviour
                                     if (DownTouch.GetComponent<Renderer>().material.color != UpTouch.GetComponent<Renderer>().material.color)
                                     {
                                         UpTouch.GetComponent<ObjControl>().Search(DownTouch, UpTouch.GetComponent<Renderer>().material.color);
-                                        GameManager.Instance.nowPoint += 10;
-                                        Point.text =  GameManager.Instance.nowPoint + "";
-                                        if(GameManager.Instance.nowPoint == GameManager.Instance.availablePoint)
+                                        GameManager.InGameData.nowPoint += 10;
+                                        Point.text =  GameManager.InGameData.nowPoint + "";
+                                        if(GameManager.InGameData.nowPoint == GameManager.InGameData.availablePoint)
                                         {
-                                            if (FPP_Cam.Instance.TileReset[GameManager.Instance.RoomNum-1].GetComponent<OpenDoor>().qualification())
+                                            if (FPP_Cam.Instance.TileReset[GameManager.InGameData.RoomNum-1].GetComponent<OpenDoor>().qualification())
                                             {
                                                 ClearBG.SetActive(true);
                                                 StageClear(); //JH
                                                 objectiveText.text = ""; //JH
-                                                FPP_Cam.Instance.TileReset[GameManager.Instance.RoomNum - 1].GetComponent<OpenDoor>().SetDoorUseTrue();
+                                                FPP_Cam.Instance.TileReset[GameManager.InGameData.RoomNum - 1].GetComponent<OpenDoor>().SetDoorUseTrue();
                                             }
                                             else{
                                                 StageFailed();
@@ -181,10 +181,10 @@ public class ControlColor : MonoBehaviour
                             ToolBox.Instance.GetKeyDown(hit.point);        //SearchRay 첫 오브젝트와 같은방향       
                             ToolBox.Instance.keydown = true;
 
-                            GameManager.Instance.Setcolor(UpTouch.GetComponent<Renderer>().material.color);
-                            Image.GetComponent<Image>().color = GameManager.Instance.Getcolor();
+                            GameManager.InGameData.Setcolor(UpTouch.GetComponent<Renderer>().material.color);
+                            Image.GetComponent<Image>().color = GameManager.InGameData.Getcolor();
                             //SaveObj = CurrentTouch;
-                            GameManager.Instance.saveColor =  false;
+                            GameManager.InGameData.saveColor =  false;
                             Debug.Log("False");
                             // CurrentTouch  . ->  search (CurrentTouch CurrentTouch.color() )
                             // 
@@ -199,7 +199,7 @@ public class ControlColor : MonoBehaviour
 
         }
     
-        if(GameManager.Instance.nowPoint>GameManager.Instance.availablePoint) //JH
+        if(GameManager.InGameData.nowPoint>GameManager.InGameData.availablePoint) //JH
             currentPointText.color = new Vector4(1f, 0.2f, 0.2f, 1f);
             else
             currentPointText.color = new Vector4(1f, 1f, 1f, 1f);

@@ -64,7 +64,7 @@ public class OpenDoor : MonoBehaviour
             }
             Debug.Log("DoorTrue");
         }
-        if(GameManager.Instance.nowPoint>GameManager.Instance.availablePoint) //JH
+        if(GameManager.InGameData.nowPoint>GameManager.InGameData.availablePoint) //JH
             return false;
         return true;
     }
@@ -107,7 +107,7 @@ public class OpenDoor : MonoBehaviour
         availablePoint[6] = 40;    //1-7
 
 
-        GameManager.Instance.availablePoint = availablePoint[GameManager.Instance.RoomNum - 1];
+        GameManager.InGameData.availablePoint = availablePoint[GameManager.InGameData.RoomNum - 1];
 
 
     }
@@ -121,11 +121,11 @@ public class OpenDoor : MonoBehaviour
             if (MainCamera.transform.tag == "MainCamera" && qualification())
             {
                 if (this.RoomNum != 0)
-                    GameManager.Instance.RoomNum = RoomNum;
+                    GameManager.InGameData.RoomNum = RoomNum;
                 if (this.PointZero)
                 {
-                    GameManager.Instance.nowPoint = 0;
-                    Controller.GetComponent<ControlColor>().Point.text = "  " + GameManager.Instance.nowPoint;
+                    GameManager.InGameData.nowPoint = 0;
+                    Controller.GetComponent<ControlColor>().Point.text = "  " + GameManager.InGameData.nowPoint;
 
                 }
                 this.DoorUse = true;
@@ -154,10 +154,10 @@ public class OpenDoor : MonoBehaviour
 
             if (RoomNumSave)
             {
-                GameManager.Instance.SetRoomNum(RoomNum + 1);
+                GameManager.InGameData.SetRoomNum(RoomNum + 1);
                 RoomNumText.text = "STAGE 1-"+ (RoomNum + 1)+"";
                 RoomAvailableText.text = "/" + availablePoint[RoomNum];
-                GameManager.Instance.availablePoint = availablePoint[RoomNum];
+                GameManager.InGameData.availablePoint = availablePoint[RoomNum];
                 RoomGoalText.text = RoomGoalTextStr[RoomNum];
                 Controller.GetComponent<ControlColor>().ClearBG.SetActive(false);
             }

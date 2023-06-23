@@ -12,7 +12,7 @@ public class NextScene : MonoBehaviour
     {
         if(other.tag == "MainCamera")
         {
-            GameManager.Instance.RoomNum = 1;
+            GameManager.InGameData.RoomNum = 1;
             LoadingPage.SetActive(true);
             SceneManager.LoadScene(NextStage);
         }

@@ -52,9 +52,7 @@ public class Menubutton : MonoBehaviour
         Debug.Log("Stage_1");
         idx = 0;
         Target = SlideImg[idx];
-        StartImg[0].SetActive(true);
-        //StartImg[1].SetActive(true);
-        Invoke("LoadGame", 7f);
+        LoadGame();
     }
 
     void LoadGame()

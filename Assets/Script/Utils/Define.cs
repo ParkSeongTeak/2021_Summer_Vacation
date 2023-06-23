@@ -12,6 +12,24 @@ public class Define
         Scissors,
         MaxCount
     }
+    public enum MainMenuButtons
+    {
+        Start,
+        Option,
+        Credit,
+        Exit,
+        MaxCount
+    }
+
+    public enum MainMenuPopUp
+    {
+        
+        OptionPopUp,
+        Credit,
+        SaveDataInitialization,
+        MaxCount
+    }
+
 
     public enum Buttons
     {

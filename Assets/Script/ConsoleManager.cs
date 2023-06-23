@@ -42,7 +42,7 @@ public class ConsoleManager : MonoBehaviour // JH 20210925
     public void Option_Reset(){
 
         GMObj=GameObject.Find("GameManager");
-        GameManager.Instance.reset();
+        GameManager.InGameData.reset();
         SceneManager.LoadScene("MainMenu");
 
     }

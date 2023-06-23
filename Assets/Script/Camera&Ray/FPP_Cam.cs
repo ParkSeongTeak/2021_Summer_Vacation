@@ -49,9 +49,9 @@ public class FPP_Cam : MonoBehaviour
   
     public void TileRe()
     {
-        GameManager.Instance.nowPoint = 0;
-        Controller.GetComponent<ControlColor>().Point.text = GameManager.Instance.nowPoint+"";
-        TileReset[GameManager.Instance.RoomNum-1].GetComponent<OpenDoor>().TileReset();
+        GameManager.InGameData.nowPoint = 0;
+        Controller.GetComponent<ControlColor>().Point.text = GameManager.InGameData.nowPoint+"";
+        TileReset[GameManager.InGameData.RoomNum-1].GetComponent<OpenDoor>().TileReset();
         this.gameObject.transform.localPosition = new Vector3(0, 0.389f, 0);
         Body.GetComponent<Body>().BodyResetVec();
 

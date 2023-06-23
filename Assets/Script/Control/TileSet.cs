@@ -7,7 +7,7 @@ public class TileSet : MonoBehaviour
     int num = 0;
    public void TileReSet()
    {
-        num = GameManager.Instance.RoomNum;
+        num = GameManager.InGameData.RoomNum;
 
    }
 }
