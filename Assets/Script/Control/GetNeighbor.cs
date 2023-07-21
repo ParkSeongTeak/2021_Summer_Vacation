@@ -23,17 +23,12 @@ public class GetNeighbor : MonoBehaviour
                 this.gameObjects.Add(collision.gameObject);
             }
         }
-        //Debug.Log("Test      " + collision.gameObject.name);
     }
 
     public List<GameObject> neighborObj()
     {
 
-        for(int i = 0; i < this.gameObjects.Count; i++)
-        {
-           //Debug.Log("In Test neighor  "+ gameObjects.GetType().Name);
-        }
-
+        
         return this.gameObjects;
     }
 }

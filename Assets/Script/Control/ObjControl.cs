@@ -16,7 +16,6 @@ public class ObjControl : MonoBehaviour
     private void Start()
     {
        
-        //this.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         this.Invoke("GetNeighbor", 0.2f);
         this.VeryFirst = this.gameObject.GetComponent<Renderer>().material.color;
         
@@ -39,7 +38,7 @@ public class ObjControl : MonoBehaviour
                 Debug.Log(this.gameObject.name+": "+ i);
 
                 this.neighborObjList[i].gameObject.GetComponent<ObjControl>().Search(this.gameObject, originalColor);        //인접 큐브에 전파;
-                //Debug.Log("Hello");
+               
             }
 
 
